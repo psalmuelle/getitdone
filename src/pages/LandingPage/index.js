@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { Register, Login } from "../../components/Form";
 import SlickLogo from "../../images/slick-logo.svg"
-import HeroImg from "../../images/web_Header.jpg"
+import HeroImg from "../../images/3d-flame-man.png"
 import CheckImg from "../../images/check.png"
 
 
@@ -11,7 +11,7 @@ import CheckImg from "../../images/check.png"
 const LandingPage = () => {
   return (
    <div className=" m-0 p-0">
-    <header className="flex justify-between h-22 p-4 pt-6 pb-1 items-center sticky">
+    <header className="flex justify-between h-22 p-4 pt-6 pb-1 items-center sticky top-0 bg-white  top-0">
         <div className="">
            <div className="relative ">
             <img src={SlickLogo} alt="logo" className="block w-6 md:w-7 absolute rotate-180 "style={{top:"-55%", right:"32.5%"}}/>
@@ -27,11 +27,11 @@ const LandingPage = () => {
     </header>
 
 
-    <main className="  mt-10 md:mt-5 ">
+    <main className="  mt-10 md:mt-10 ">
         <div className="w-5/6 bg-white m-auto flex flex-col gap-28 p-px md:flex-row md:gap-0 pt-10 md:pt-8 ">
     <section className="md:w-1/2">
         
-      <h1 className="p-4 mb-10 font-medium text-center text-4xl max-w-md md:max-w-lg m-auto md:pt-0 md:text-5xl">
+      <h1 className="p-4 mb-8 font-medium text-center text-4xl max-w-md md:max-w-lg m-auto md:pt-0 md:text-5xl">
       A Simple App To Plan <span className="text-indigo-500 ">Your Personal Projects </span> and <span className="text-indigo-500 ">Daily Routines</span> 
     </h1>
     <img src={HeroImg} alt="hero-img" className="w-10/12 md:w-96  block m-auto  "/>
@@ -39,7 +39,7 @@ const LandingPage = () => {
     </section> 
 
     <section className="md:w-1/2">
-<div className="text-2xl font-bold md:text-3xl text-center">
+<div className="text-2xl font-bold md:text-3xl text-center mb-6">
 Register To Start Using  <span className=" text-2xl text-indigo-500 font-bold md:text-3xl ">Sl<span className="font-sans font-medium text-black ">i</span>ck</span>
     {
         // Login To Your Dashboard

@@ -1,8 +1,8 @@
 
 import React from "react";
 import { useForm } from "react-hook-form";
-
 import {yupResolver} from "@hookform/resolvers/yup"
+import Slider from "./Slider";
 import * as yup from "yup"
 
 
@@ -95,3 +95,18 @@ export function Login(){
 }
 
 
+
+export function AddTodo (){
+    const {register, handleSubmit, formState:errors} = useForm()
+    const onTodoSubmit =()=>{
+        console.log("hello")
+    }
+    return(
+        <form className="text-white" onSubmit={handleSubmit(onTodoSubmit)}>
+
+<label htmlFor = "todoTitle">Title of your Project/Task</label>
+<input  type="text" id="todoTitle" {...register("todoTitle", {required:true})}/>
+
+        </form>
+    )
+}
