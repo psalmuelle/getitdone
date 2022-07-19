@@ -1,8 +1,8 @@
 
-import React from "react";
+import React, {useState} from "react";
 import { useForm } from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup"
-import Slider from "./Slider";
+
 import * as yup from "yup"
 
 
@@ -98,14 +98,66 @@ export function Login(){
 
 export function AddTodo (){
     const {register, handleSubmit, formState:errors} = useForm()
-    const onTodoSubmit =()=>{
-        console.log("hello")
+    const [next, setNext] = useState(false)
+    const [task, setTask] = useState(0)
+   
+  
+    const onSubmit =(data)=>{
+        console.log(data)
     }
+    const onContinueForm=()=>{
+    setNext(!next)
+    }
+    const onAddTask =()=>{
+    setTask(task + 1)
+  
+    
+    }
+  
     return(
-        <form className="text-white" onSubmit={handleSubmit(onTodoSubmit)}>
+        <form className="text-white" onSubmit={handleSubmit(onSubmit)}>
+{
+!next && (
+<>
+<label className="block text-slate-100 text-center w-fit m-auto text-lg" htmlFor = "todoTitle">Title of your Project/Task</label>
+<input   className="block focus:outline-black focus:outline-dashed text-black text-lg rounded-lg shadow px-4 m-auto my-4 h-11 w-5/6 w96" type="text" id="todoTitle" {...register("todoTitle", {required:true})}/>
 
-<label htmlFor = "todoTitle">Title of your Project/Task</label>
-<input  type="text" id="todoTitle" {...register("todoTitle", {required:true})}/>
+<label className="block text-slate-100 text-center w-fit m-auto mt-5 text-lg" htmlFor = "durationType">Duration Type</label>
+<select className="block focus:outline-black focus:outline-dashed text-black text-lg rounded-lg shadow px-4 m-auto my-4 h-11 w-44" id="durationType" {...register("durationType", {required:true})}>
+    <option htmlFor="durationType" value="repeat">Repeat</option>
+    <option htmlFor ="durationType" value="no-repeat">No Repeat</option>
+</select>
+
+<label className="block text-slate-100 text-center w-fit m-auto mt-5 text-lg" htmlFor = "deadline">Deadline</label>
+<input className="block focus:outline-black focus:outline-dashed text-black text-lg rounded-lg shadow px-4 m-auto mt-4 mb-10 h-11 w-44" type="date" id="deadline" {...register("deadline", {required:true})}/>
+
+<button type="button" onClick={onContinueForm} className=" float-right mr-10 border border-spacing-6 mt-5 px-8 rounded-xl py-2 hover:border-none hover:bg-white/70 hover:text-black active:bg-white/60 shadow-md shadow-black absolute bottom-14 -right-3">Next</button>
+</>
+
+)
+}
+{
+  next && (
+    <>
+    
+  <label className="block text-slate-100 text-center w-fit m-auto text-lg" htmlFor = {`task${task}`}>Tasks</label>
+<input  className="block focus:outline-black focus:outline-dashed text-black text-lg rounded-lg shadow px-4 m-auto my-4 h-11 w-5/6" type="text"  id={`task${task}`} placeholder = {`Task ${task}`} {...register(`task[${task}]`, {required:true})}/>
+
+
+
+<button type="button" onClick={onAddTask} className=" bg-black/80 rounded block m-auto px-3 text-3xl ">+</button>
+
+<button type="button" onClick={onContinueForm} className=" float-right mr-10 border border-spacing-6 mt-5 px-5 rounded-xl py-2 hover:border-none hover:bg-white/70 hover:text-black active:bg-white/60 shadow-md shadow-black absolute bottom-14 left-5">Previous</button>
+
+
+<button className="bg-slate-900/90 border-slate-500 px-5 shadow-xl active:bg-slate-900 text-lg py-2 m-auto rounded-xl mt-24 block  " type="submit" >Create Todo</button>
+
+    </>
+  )  
+}
+
+
+
 
         </form>
     )

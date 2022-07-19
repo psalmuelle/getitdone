@@ -1,22 +1,19 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { Register, Login } from "../../components/Form";
-import SlickLogo from "../../images/slick-logo.svg"
+import SlickLogo from "../../images/slick.svg"
 import HeroImg from "../../images/3d-flame-man.png"
 import CheckImg from "../../images/check.png"
-
+import HomeScreenshot from "../../images/task-list.png"
 
 
 
 const LandingPage = () => {
   return (
    <div className=" m-0 p-0">
-    <header className="flex justify-between h-22 p-4 pt-6 pb-1 items-center sticky top-0 bg-white  top-0">
-        <div className="">
-           <div className="relative ">
-            <img src={SlickLogo} alt="logo" className="block w-6 md:w-7 absolute rotate-180 "style={{top:"-55%", right:"32.5%"}}/>
-            <span className="block text-2xl text-indigo-500 font-bold md:text-3xl ">Sl<span className="font-sans  font-medium text-black">i</span>ck</span>
-            </div>
+    <header className="flex justify-between h-22 p-4 pt-6 pb-1 items-center sticky bg-white gap-20  top-0">
+        <div className="flex flex-col justify-center items-stretch -mt-5 -ml-4 md:ml-0 md:mt-">
+            <img src={SlickLogo} alt="Home-icon" className="block  "/>
         </div>
 
         <div className="flex md:w-72  w-60  justify-between items-center  ">
@@ -52,11 +49,11 @@ Register To Start Using  <span className=" text-2xl text-indigo-500 font-bold md
 
 
 </div>
-<section className=" w-full bg-indigo-300 h-96">
-    Picture of dashboard is gonna be header
-    And some random picture below to suport the list and simple footer. Find a solution to the non-sticky header and animate the whole page
-</section>
-<ul className="px-2 list-none flex flex-col justify-center items-start  gap-4 py-4 w-fit m-auto">
+<section className=" w-full mt-10 ">
+    <div className="flex justify-center flex-col items-center gap-10 md:flex-row-reverse mt-10 md:mt-0">
+        <img src={HomeScreenshot} alt="home-screenshot" className="block w-96 md:w-[450px]" />
+
+        <ul className="px-2 list-none flex flex-col justify-center items-start  gap-4 py-4 w-fit  font-bold text-slate-900">
             <li> <img src={CheckImg} className="w-7 inline-block pr-1" alt="checked"/> List your projects </li>
             <li> <img src={CheckImg} className="w-7 inline-block pr-1" alt="checked"/> Create deadlines for your projects </li>
             <li> <img src={CheckImg} className="w-7 inline-block pr-1" alt="checked"/> Get a list of Task for each project</li>
@@ -65,10 +62,14 @@ Register To Start Using  <span className=" text-2xl text-indigo-500 font-bold md
             <li> <img src={CheckImg} className="w-7 inline-block pr-1" alt="checked"/>Setup daily routines and time to do them</li>
             
         </ul>
+    </div>
+  
+</section>
+
     </main>
 
-    <footer>
-        Copyright &copy; 2022 || <a href="www.linkedin.com">Erinle Samuel</a>
+    <footer className="bg-slate-600 text-white/80 text-center mt-5 p-2">
+        Copyright &copy; 2022 || <a href="https://www.erinlesamuel.me " className="text-blue-500  underline font-bold hover:text-white">Erinle Samuel</a>
     </footer>
    </div>
 

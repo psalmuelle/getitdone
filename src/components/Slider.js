@@ -16,9 +16,9 @@ export default function Slider(props) {
    
     {props.slides.map((slide, index)=>{
         return(
-            <div key={index}>
-            {index === current && <div> {slide} </div>}
-            </div>
+           <div key={index}>
+            {index === current && slide}
+           </div>
         )
     })
     }
