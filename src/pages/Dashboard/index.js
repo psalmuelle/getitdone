@@ -19,6 +19,7 @@ export default function DashBoard() {
 <Route path= "/" element={<HomeSection/>}/>
 <Route path="/notes" element={<Notes/>}/>
 <Route path="/clock" element={<Clock/>}/>
+<Route path ="*" element={<HomeSection/>}/>
 </Routes>
 
   </div>

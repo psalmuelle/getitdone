@@ -14,8 +14,6 @@ root.render(
   <Routes>
     <Route path='/landing-page'element ={<LandingPage/>}/>
     <Route path='*'element ={<DashBoard/>}/>
-   
-    
   </Routes>
 </BrowserRouter>
 
