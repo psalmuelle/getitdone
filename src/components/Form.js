@@ -168,7 +168,7 @@ export function AddNotes(){
         console.log(data)
     }
 return(
-    <form onSubmit={handleSubmit(onAddNote)} className="flex flex-col p-5 bg-slate-600">
+    <form onSubmit={handleSubmit(onAddNote)} className="flex flex-col p-4 bg-slate-600">
     <select className="block focus:outline-black/70 focus:outline-dashed text-black/90 text-md rounded-lg shadow px-4 m-auto my-4 h-11 w-44 bg-white" id="category" {...register("category", {required:true})}>
     <option htmlFor="category"  value="">Category</option>
     <option htmlFor="category" value="notes">Notes</option>

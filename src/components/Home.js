@@ -32,7 +32,7 @@ export default function HomeSection(){
         }
         <hr className="h-1  border-black/60"/>
 
-        <div className="bg-black/10 p-4 flex justify-center items-center md:flex-row flex-wrap gap-20 md:gap-28">
+        <div className="bg-black/5 p-4 flex justify-center items-center md:flex-row flex-wrap gap-20 md:gap-28">
 
         <section className="bg-white/60 text-slate-900 rounded  shadow-md shadow-black/70 w- w- w-96">
           <h1 className="bg-indigo-500 rounded-tr rounded-tl h-12 md:h-14  flex items-center justify-center text-lg text-white">Build My Portfolio</h1>
