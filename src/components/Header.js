@@ -13,7 +13,7 @@ export default function Header (){
 
     return (
      
-<header className="shadow-lg flex pt-1 justify-between md:justify-around px-4 items-center gap-16  bg-slate-50 sticky top-0">
+<header className="shadow-lg flex pt-1 justify-between md:justify-around px-4 items-center gap-16  bg-slate-50 sticky top-0 z-40">
 
           <NavLink to="/">
         <div className="flex flex-col justify-center items-stretch -ml-4 md:ml-0 " >

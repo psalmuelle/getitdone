@@ -129,7 +129,7 @@ export function AddTodo (){
             <input className="shadow appearance-none border rounded w-full h-11 py-2 px-3 text-gray-800 mb-3 mx-auto leading-tight focus:outline-none focus:shadow-outline" type="date" id="deadline" {...register("deadline", {required: true})}/>
                </div>
 
-<button className="bg-white border-slate-500 px-5 shadow-xl active:bg-white/90 text-lg py-2 m-auto rounded-xl mt-5 block text-slate-900" type="submit" >Add Note</button>
+<button className="border-slate-500 px-10 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-lg py-3  m-auto rounded-md mt-7 block text-slate-50" type="submit" >Add Note</button>
 
         </form>
     )
