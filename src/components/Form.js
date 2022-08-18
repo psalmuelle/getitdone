@@ -139,24 +139,21 @@ export function AddTodo (){
 //Add Note Form
 
 export function AddNotes(){
-    const {register, handleSubmit}= useForm()
+    const {register,reset, handleSubmit}= useForm()
     const onAddNote=(data)=>{
         console.log(data)
+        reset()
     }
 return(
-    <form onSubmit={handleSubmit(onAddNote)} className="flex flex-col p-4 bg-slate-600">
-    <select className="block focus:outline-black/70 focus:outline-dashed text-black/90 text-md rounded-lg shadow px-4 m-auto my-4 h-11 w-44 bg-white" id="category" {...register("category", {required:true})}>
-    <option htmlFor="category"  value="">Category</option>
-    <option htmlFor="category" value="notes">Notes</option>
-    <option htmlFor ="category" value="ideas">Ideas</option>
-</select>
+    <form onSubmit={handleSubmit(onAddNote)} className="flex flex-col p-4 bg-slate-500/60">
+    
    <label htmlFor="noteTitle" className="block text-white w-3/4 max-w-sm m-auto pl-1 text-md">Note Title</label>
-    <input placeholder="Note title" type="text"  {...register("noteTitle", {required:true})} id="noteTitle" className="block focus:outline-black/70 focus:outline-dashed text-black  rounded-lg shadow px-4 m-auto mt-1 h-11 w-3/4 max-w-sm"/>
+    <input placeholder="Note title" type="text"  {...register("noteTitle", {required:true})} id="noteTitle" className="block focus:outline-black/70 focus:outline-dashed text-slate-900 bg-gray-50/95 rounded shadow px-4 m-auto mt-1 h-11 w-3/4 max-w-sm"/>
 
-    <label htmlFor="note" className="block text-white w-full max-w-3xl  mt-8 mb-2 pl-1 text-md m-auto">Write Your Thought</label>
-   <textarea {...register("note", {required:true})} placeholder="Write your Thoughts" id="note" className="resize-none block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:outline-black/70 focus:outline-dashed h-40 max-w-3xl m-auto"></textarea>
+    <label htmlFor="note" className="block text-white w-full max-w-xl  mt-8 mb-2 pl-1 text-md m-auto">Write Your Thought</label>
+   <textarea {...register("note", {required:true})} placeholder="Write your Thoughts" id="note" className="resize-none block p-2.5 w-full text-gray-900 bg-gray-50/95 rounded border border-gray-300 focus:outline-black/70 focus:outline-dashed h-40 max-w-xl m-auto "></textarea>
 
-   <button className="bg-white border-slate-500 px-5 shadow-xl active:bg-white/90 text-lg py-2 m-auto rounded-xl mt-5 block text-slate-900" type="submit" >Add Note</button>
+   <button className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 border-slate-500 px-5 shadow-xl  text-lg py-2 m-auto rounded mt-5 block text-white" type="submit" >Add Note</button>
     </form>
 )
 }
