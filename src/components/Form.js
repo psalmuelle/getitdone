@@ -186,3 +186,28 @@ export function AddTodoList (){
         </form>
     )
 }
+
+export function AddPlan (){
+    const {register, handleSubmit,reset, formState:errors} = useForm()
+    
+   
+   
+  
+    const onSubmit =(data)=>{
+        
+        console.log(data)
+        
+       reset()
+    }
+  
+  
+    return(
+        <form className="" onSubmit={handleSubmit(onSubmit)}>
+               <div className="flex justify-between items-center mx-auto bg-violet-500 w-full max-w-lg px-5 py-1 pl-1 rounded ">
+           <input type="text" placeholder="Add a task to list" className="rounded pl-4 pr-1 h-10 w-9/12" {...register("plan", {required: true})} />
+            <button className="text-slate-900  px-3 pb-1 rounded-full flex justify-center items-center  bg-gradient-to-r from-slate-500 via-purple-300 to-white text-3xl">+</button>
+           </div>
+
+        </form>
+    )
+}

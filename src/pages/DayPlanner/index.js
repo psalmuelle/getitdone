@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-
+import { AddPlan } from "../../components/Form";
 
 
 
@@ -25,12 +25,17 @@ export default function DayPlanner(){
    <div className="text-2xl md:text-4xl"> {time.toDateString()}</div>
  </div>
  <hr/>
- <section className="mt-4">
-Create a new note
+ <p className="mx-auto text-slate-900 text-center">NB: Added plan expirers after 24 hours </p>
+ <section className="my-4 max-w-lg text-slate-900 mx-auto bg-white p-4 rounded">
+<p className="border-b ">&#x2022; Create a Library</p>
+<p className="border-b mt-3">&#x2022; Create a Library</p>
+<p className="border-b mt-3">&#x2022; Create a Library</p>
+
 
 
  </section>
 
+  <AddPlan/>
         </div>
 
     )
