@@ -4,7 +4,7 @@ import React, {useState, useEffect} from "react";
 
 
 
-export default function ClockPage(){
+export default function DayPlanner(){
    const [time, setTime] = useState(new Date())
     const [joke, setJoke]  = useState("")
     const [error, setError] =useState(null)
