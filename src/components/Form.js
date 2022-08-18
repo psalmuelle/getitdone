@@ -1,5 +1,5 @@
 
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { useForm } from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup"
 
@@ -159,4 +159,33 @@ return(
    <button className="bg-white border-slate-500 px-5 shadow-xl active:bg-white/90 text-lg py-2 m-auto rounded-xl mt-5 block text-slate-900" type="submit" >Add Note</button>
     </form>
 )
+}
+
+
+
+
+
+export function AddTodoList (){
+    const {register, handleSubmit,reset, formState:errors} = useForm()
+    
+   
+   
+  
+    const onSubmit =(data)=>{
+        
+        console.log(data)
+        
+       reset()
+    }
+  
+  
+    return(
+        <form className="" onSubmit={handleSubmit(onSubmit)}>
+               <div className="flex justify-between items-center mx-auto absolute bg-violet-500 w-full px-5 py-1 pl-1 rounded-bl rounded-br ">
+           <input type="text" placeholder="Add a task to list" className="rounded pl-4 pr-1 h-10" {...register("tasks-list", {required: true})} />
+            <button className="text-slate-900  px-3 pb-1 rounded-full flex justify-center items-center  bg-gradient-to-r from-slate-500 via-purple-300 to-white text-3xl">+</button>
+           </div>
+
+        </form>
+    )
 }

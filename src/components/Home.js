@@ -3,8 +3,9 @@ import AddIcon from "../images/icons8-task.svg"
 import Close from "../images/icons8-close.svg"
 import RepeatIcon from "../images/icons8-ok.svg"
 import { motion } from "framer-motion";
-import { AddTodo } from "./Form";
+import { AddTodo, AddTodoList } from "./Form";
 import DraggableTasks from "./DraggableTasks";
+
 
 //Tests
 const myTasks =[
@@ -89,10 +90,7 @@ export default function HomeSection(){
           </div>
 
 
-          <div className="flex justify-between items-center mx-auto absolute bg-violet-500 w-full px-5 py-1 pl-1 rounded-bl rounded-br ">
-           <input type="text" placeholder="Add a task to list" className="rounded pl-4 h-10"/>
-            <button className="text-slate-900  px-3 pb-1 rounded-full flex justify-center items-center  bg-gradient-to-r from-slate-500 via-purple-300 to-white text-3xl">+</button>
-           </div>
+         <AddTodoList/>
 
         </section>
 
