@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import SlickLogo from "../images/slick.svg";
 import NoteIcon from "../images/icons8-note.svg"
-import ClockIcon from "../images/icons8-clock.svg"
+import ClockIcon from "../images/icons8-planner-50.png"
 import SignoutIcon from "../images/icons8-sign-out.svg"
 
 
@@ -29,10 +29,11 @@ export default function Header (){
 
         
 
-          <NavLink to="/clock">
-        <div   className="flex-col justify-center items-center">
-        <img src={ClockIcon} alt="clock-icon" className="w-8 block -mb-px"/>
-        <p className="">Clock</p>
+          <NavLink to="/planner">
+        <div   className="flex-col justify-center items-center 
+        ">
+        <img src={ClockIcon} alt="clock-icon" className="w-8 block mx-auto"/>
+        <p className="">Day Planner</p>
         </div>
           </NavLink>
 
