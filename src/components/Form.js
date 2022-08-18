@@ -11,7 +11,6 @@ export function Register(){
 
     const formSchema = yup.object().shape({
         password: yup.string().min(8),
-        password1: yup.string().oneOf([yup.ref('password')], 'Passwords does not match'),
       })
 
       
@@ -43,12 +42,6 @@ export function Register(){
     <input className="shadow appearance-none border rounded w-full h-11 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline min-w-max max-w-sm" type="password" id="password" {...register("password", {required:true})}/>
 
 
-    <label className="m-2 mt-3 ml-0 font-medium before:content-['*'] before:text-red-600 before:mr-px md:text-lg " htmlFor = "password1">Confirm Password</label>
-
-    <input className="shadow appearance-none border rounded w-full h-11 py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline min-w-max max-w-sm" type="password" id="password1" {...register("password1", {
-        required:true
-        })}/>
- <p className="text-red-500 text-sm -mt-2 italic">{ errors.password1 &&errors.password1.message}</p>
    
  
     <button className="bg-indigo-500 py-4 px-20  mt-8 rounded-md  w-full  min-w-max max-w-sm text-white hover:bg-indigo-400 active:bg-indigo-600 shadow-lg " type="submit" >Register</button>
