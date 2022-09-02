@@ -327,8 +327,8 @@ export function ContactMe (){
   };
 
   return (
-    <form  onSubmit={handleSubmit(onSubmit)} className="bg-white rounded p-4" >
-      <div className="flex flex-wrap justify-center gap-4">
+    <form  onSubmit={handleSubmit(onSubmit)} className="bg-white rounded p-4 " >
+      <div className="flex flex-wrap justify-center gap-7">
       <div className='flex flex-col items-start justify-center'>
         <label htmlFor="name" className="p-2">Name</label>
         <input
@@ -353,13 +353,14 @@ export function ContactMe (){
       </div>
     </div>
     <div className="flex flex-wrap justify-center ">
-    <div className='flex flex-col items-start justify-center  '>
+    <div className='flex flex-col items-start justify-center mt-5 w- w-60 sm:w-[34rem]'>
         <label htmlFor="message"  className="p-2">Message!</label>
        
-        <textarea className=" rounded pl-2 pr-1 border bg-black/5 w-full" placeholder="Write a message" {...register("message", {required:true} )} id="message">
+        <textarea className=" rounded pl-2 pr-1 border bg-black/5 w-full h-52 " placeholder="Write a message" {...register("message", {required:true} )} id="message">
         </textarea>
       </div>
       </div>
+      <button type="submit" className="py-3 my-10 mx-auto block  border-slate-500 px-10 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50 rounded-3xl cursor-pointer">Send Message</button>
     </form>
   );
 }
