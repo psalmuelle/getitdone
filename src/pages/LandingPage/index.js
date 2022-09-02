@@ -88,19 +88,36 @@ const [menu, setMenu] = useState(false)
             <img src={feature3} className="block w-full max-w-sm rounded "/>
           </section>
 
+
+         
           <h2 className="border-b-4 w-fit  border-indigo-900 mx-auto text-black/90 pt-5">Testimonies</h2>
-         <section className="my-10 w-screen">
+         <section className="my-10 flex overflow-hidden gap-4  ">
           <div className="text-center p-4 bg-white shadow max-w-md">
-            <blockquote className="italic text-black my-4 ">"Slick app makes it easier for me to get started with my projects. I can see deadline of my project which makes me work towards it."</blockquote>
+            <blockquote className="italic text-black my-4 px-4">"Slick app makes it easier for me to get started with my projects. I can see deadline of my project which makes me work towards it."</blockquote>
             <div className="flex justify-center items-center gap-4 mt-8"><img alt="testimonial image" src={samImg} className ="w-14 rounded-full "/> Erinle Samuel <span className="text-slate-700">|</span><span className="text-slate-700">Fullstack</span> </div>
 
           </div> 
-          <p className="text-center w-fit mx-auto text-5xl md:text-6xl text-slate-500">...</p>
+          <div className="text-center p-4 bg-white shadow max-w-md">
+            <blockquote className="italic text-black my-4 px-4">"Slick app makes it easier for me to get started with my projects. I can see deadline of my project which makes me work towards it."</blockquote>
+            <div className="flex justify-center items-center gap-4 mt-8"><img alt="testimonial image" src={samImg} className ="w-14 rounded-full "/> Erinle Samuel <span className="text-slate-700">|</span><span className="text-slate-700">Fullstack</span> </div>
+
+          </div> 
+          <div className="text-center p-4 bg-white shadow max-w-md">
+            <blockquote className="italic text-black my-4 px-4">"Slick app makes it easier for me to get started with my projects. I can see deadline of my project which makes me work towards it."</blockquote>
+            <div className="flex justify-center items-center gap-4 mt-8"><img alt="testimonial image" src={samImg} className ="w-14 rounded-full "/> Erinle Samuel <span className="text-slate-700">|</span><span className="text-slate-700">Fullstack</span> </div>
+
+          </div> 
+          <div className="text-center p-4 bg-white shadow max-w-md">
+            <blockquote className="italic text-black my-4 px-4">"Slick app makes it easier for me to get started with my projects. I can see deadline of my project which makes me work towards it."</blockquote>
+            <div className="flex justify-center items-center gap-4 mt-8"><img alt="testimonial image" src={samImg} className ="w-14 rounded-full "/> Erinle Samuel <span className="text-slate-700">|</span><span className="text-slate-700">Fullstack</span> </div>
+
+          </div> 
          </section>
+          <p className="text-center w-fit mx-auto text-5xl md:text-6xl text-slate-500">...</p>
 
           <h2 className="border-b-4 w-fit  border-indigo-900 mx-auto text-black/90 pt-10">Contact Developer</h2>
           <p className="p-4 text-center text-black mt-4">My name is <span>Sam</span>, you can send me a message. Feebacks and recommendations are welcome!</p>
-          <section >
+          <section className="">
             <ContactMe/>
           </section>
       </main>

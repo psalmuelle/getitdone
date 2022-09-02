@@ -329,34 +329,34 @@ export function ContactMe (){
   return (
     <form  onSubmit={handleSubmit(onSubmit)} className="bg-white rounded p-4 " >
       <div className="flex flex-wrap justify-center gap-7">
-      <div className='flex flex-col items-start justify-center'>
+      <div className='flex flex-col items-start justify-center w-80 '>
         <label htmlFor="name" className="p-2">Name</label>
         <input
           type='text'
           placeholder='Your Name'
           id="name"
-          className='rounded pl-2 pr-1 h-10 border bg-black/5'
+          className='rounded w-full pl-2 pr-1 h-10 border bg-black/5'
           {...register("name", { required: true })}
         />
            
       </div>
-      <div className='flex flex-col items-start justify-center'>
+      <div className='flex flex-col items-start justify-center w-80'>
         <label htmlFor="email" className="p-2">Email</label>
         <input
           type='email'
           placeholder='domain@email.com'
           id="email"
-          className='rounded pl-2 pr-1 h-10 border bg-black/5'
+          className='w-full rounded pl-2 pr-1 h-10 border bg-black/5'
           {...register("email", { required: true })}
         />
            
       </div>
     </div>
     <div className="flex flex-wrap justify-center ">
-    <div className='flex flex-col items-start justify-center mt-5 w- w-60 sm:w-[34rem]'>
+    <div className='flex flex-col items-start justify-center w-80   mt-8  md:w-[42rem]'>
         <label htmlFor="message"  className="p-2">Message!</label>
        
-        <textarea className=" rounded pl-2 pr-1 border bg-black/5 w-full h-52 " placeholder="Write a message" {...register("message", {required:true} )} id="message">
+        <textarea className=" rounded pl-2 pr-1 border bg-black/5 w-full p-4 h-52 " placeholder="Write a message" {...register("message", {required:true} )} id="message">
         </textarea>
       </div>
       </div>
