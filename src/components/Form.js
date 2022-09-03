@@ -327,26 +327,26 @@ export function ContactMe (){
   };
 
   return (
-    <form  onSubmit={handleSubmit(onSubmit)} className="bg-white rounded p-4 " >
+    <form  onSubmit={handleSubmit(onSubmit)} className="bg-slate-500 rounded p-4 " >
       <div className="flex flex-wrap justify-center gap-7">
       <div className='flex flex-col items-start justify-center w-80 '>
-        <label htmlFor="name" className="p-2">Name</label>
+        <label htmlFor="name" className="p-2 text-white">Name</label>
         <input
           type='text'
           placeholder='Your Name'
           id="name"
-          className='rounded w-full pl-2 pr-1 h-10 border bg-black/5'
+          className='rounded w-full pl-2 pr-1 h-10 border '
           {...register("name", { required: true })}
         />
            
       </div>
       <div className='flex flex-col items-start justify-center w-80'>
-        <label htmlFor="email" className="p-2">Email</label>
+        <label htmlFor="useremail" className="p-2 text-white">Email</label>
         <input
           type='email'
           placeholder='domain@email.com'
-          id="email"
-          className='w-full rounded pl-2 pr-1 h-10 border bg-black/5'
+          id="useremail"
+          className='w-full rounded pl-2 pr-1 h-10 border '
           {...register("email", { required: true })}
         />
            
@@ -354,9 +354,9 @@ export function ContactMe (){
     </div>
     <div className="flex flex-wrap justify-center ">
     <div className='flex flex-col items-start justify-center w-80   mt-8  md:w-[42rem]'>
-        <label htmlFor="message"  className="p-2">Message!</label>
+        <label htmlFor="message"  className="p-2 text-white">Message!</label>
        
-        <textarea className=" rounded pl-2 pr-1 border bg-black/5 w-full p-4 h-52 " placeholder="Write a message" {...register("message", {required:true} )} id="message">
+        <textarea className=" rounded pl-2 pr-1 border w-full p-4 h-52 " placeholder="Write a message" {...register("message", {required:true} )} id="message">
         </textarea>
       </div>
       </div>
