@@ -40,7 +40,7 @@ export function Register() {
       </label>
       <input
         className='shadow appearance-none border rounded w-full py-2 h-11 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline min-w-max max-w-sm'
-        type='text'
+        type='email'
         id='email'
         {...register("email", {
           required: true,
@@ -50,7 +50,6 @@ export function Register() {
           },
         })}
       />
-
       <p className='text-red-500 text-sm -mt-2 italic'>
         {errors.email && errors.email.message}
       </p>
@@ -69,7 +68,7 @@ export function Register() {
       />
 
       <button
-        className='bg-indigo-500 py-4 px-20  mt-8 rounded-md  w-full  min-w-max max-w-sm text-white hover:bg-indigo-400 active:bg-indigo-600 shadow-lg '
+        className=' bg-gradient-to-r from-sky-500 to-indigo-500 py-4 px-20  mt-8 rounded-md  w-full  min-w-max max-w-sm text-white hover:bg-indigo-400 active:bg-indigo-600 shadow-lg '
         type='submit'>
         Register
       </button>
@@ -126,7 +125,7 @@ export function Login() {
       />
 
       <button
-        className='bg-indigo-500 py-4 px-20  mt-8 rounded-md  w-full  min-w-max max-w-sm text-white hover:bg-indigo-400 active:bg-indigo-600 shadow-lg '
+        className=' bg-gradient-to-r from-sky-500 to-indigo-500 py-4 px-20  mt-8 rounded-md  w-full  min-w-max max-w-sm text-white hover:bg-indigo-400 active:bg-indigo-600 shadow-lg '
         type='submit'>
         Login
       </button>
