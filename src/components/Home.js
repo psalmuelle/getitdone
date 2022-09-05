@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import AddIcon from "../images/icons8-task.svg"
-import Close from "../images/icons8-close.svg"
+
 import RepeatIcon from "../images/icons8-ok.svg"
 import { AnimatePresence, motion } from "framer-motion";
 import { AddTodo, AddTodoList } from "./Form";

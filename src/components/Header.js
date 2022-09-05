@@ -69,6 +69,15 @@ const [menu, setMenu]= useState(false)
             exit= {{ opacity:0, y:-30}}
             
             className="bg-white py-6 border-t lg:hidden absolute w-full top-full right-0 gap-4 flex justify-center items-start  flex-col" style={{paddingLeft:"calc(50% - 4.2rem )"}}>
+
+
+<NavLink to="/">
+          <div className="flex gap-4  justify-center items-center " >
+
+<img src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/32/000000/external-dashboard-ui-essential-kmg-design-basic-outline-kmg-design.png" alt="dashboard" className="w-6 block -mb-px"/>
+<p className="">Home</p>
+</div>
+          </NavLink>
             
           <NavLink to="/planner">
           <div className="flex gap-4  justify-center items-center " >
@@ -87,7 +96,7 @@ const [menu, setMenu]= useState(false)
         </div>
           </NavLink>
 
-          <NavLink to="/logout">
+          <NavLink to="/landing-page">
         <div className="flex gap-4 justify-center items-center ">
 
         <img src={SignoutIcon} alt="logout-icon" className="w-6 block -mb-px"/>
