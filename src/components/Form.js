@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { motion } from "framer-motion";
 
 import * as yup from "yup";
 
@@ -152,7 +153,7 @@ export function AddTodo() {
   };
 
   return (
-    <form className='text-white  w-3/4' onSubmit={handleSubmit(onSubmit)}>
+    <form className='text-white ' onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-col  round gap-2'>
         <label
           htmlFor='title'
@@ -194,11 +195,11 @@ export function AddTodo() {
         />
       </div>
 
-      <button
-        className='border-slate-500 px-10 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-lg py-3  m-auto rounded-md mt-7 block text-slate-50'
+      <motion.button whileTap={{scale:1.1}} whileHover={{opacity:0.8}}
+        className='border-slate-500 px-10 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  py-3  m-auto rounded-md mt-7 block text-slate-50'
         type='submit'>
         Add Note
-      </button>
+      </motion.button>
     </form>
   );
 }
@@ -230,11 +231,12 @@ export function AddTodoList() {
           type='text'
           placeholder='Add a task to list'
           className='rounded pl-4 pr-1 h-10'
+          aria-required
           {...register("tasklist", { required: true })}
         />
-        <button className='text-slate-900  px-3 pb-1 rounded-full flex justify-center items-center  bg-gradient-to-r from-slate-500 via-purple-300 to-white text-3xl'>
+        <motion.button whileTap={{scale:1.1}} whileHover={{opacity:0.8}} className='text-slate-900  px-3 pb-1 rounded-full flex justify-center items-center  bg-gradient-to-r from-slate-500 via-purple-300 to-white text-3xl'>
           +
-        </button>
+        </motion.button>
       </div>
     </form>
   );
@@ -305,9 +307,9 @@ export function AddPlan() {
           className='rounded pl-4 pr-1 h-10 w-9/12'
           {...register("plan", { required: true })}
         />
-        <button className='text-slate-900  px-3 pb-1 rounded-full flex justify-center items-center  bg-gradient-to-r from-slate-500 via-purple-300 to-white text-3xl'>
+        <motion.button whileTap={{scale:1.1}} whileHover={{opacity:0.8}} className='text-slate-900  px-3 pb-1 rounded-full flex justify-center items-center  bg-gradient-to-r from-slate-500 via-purple-300 to-white text-3xl'>
           +
-        </button>
+        </motion.button>
       </div>
     </form>
   );

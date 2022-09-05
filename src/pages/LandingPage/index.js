@@ -110,9 +110,9 @@ setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
         <AnimatedTextCharacter text={heroMsg}/>
       </AnimatedTextWord>
       </h1>
-      <LazyMotion features={domAnimation}>
-      <m.img animate={{opacity:1, y:0}} initial={{y:20}} src={HeroImg} className= ""/>
-      </LazyMotion>
+   
+      <img animate={{opacity:1, y:0}} initial={{y:20}} src={HeroImg} className= ""/>
+    
         </section>
       <div className="border-none bg-slate-200 w-full h-24 -mt-32 md:hidden"></div>
 
