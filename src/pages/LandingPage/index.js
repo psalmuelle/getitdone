@@ -1,5 +1,4 @@
-import { AnimatePresence,useAnimation, domAnimation, LazyMotion, motion,m, animate } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { AnimatePresence, motion, } from "framer-motion";
 import React, { useState, useEffect, useRef} from "react";
 import { Register, Login, ContactMe } from "../../components/Form";
 import SlickLogo from "../../images/slick.svg";
