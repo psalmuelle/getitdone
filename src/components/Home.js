@@ -4,7 +4,7 @@ import AddIcon from "../images/icons8-task.svg"
 import RepeatIcon from "../images/icons8-ok.svg"
 import { AnimatePresence, motion } from "framer-motion";
 import { AddTodo, AddTodoList } from "./Form";
-import DraggableTasks from "./DraggableTasks";
+
 
 
 //Tests
@@ -36,14 +36,6 @@ const myTasks =[
 
 export default function HomeSection(){
   const [addList, setAddList] = useState(false)
-  const [lists, updateLists] = useState({"finalist":[]})
-  const handleOnDragEnd = (result)=>{
-    if(!result.destination) return;
-    const items = Array.from(lists);
-    const [reorderedItem] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItem);
-    updateLists(items)
-  }
  
     return(
       <div >
@@ -85,9 +77,16 @@ export default function HomeSection(){
           <p className="flex gap-1">Inspired<img className="inline-block ml-1 w-6" alt="Repeat-icon" src={RepeatIcon} /></p>
           <p className=""><span className="text-slate-500">Deadline:</span> {"44 Days To Go"}</p>
           </div>
-        
-       <DraggableTasks myTasks={myTasks} handleOnDragEnd= {handleOnDragEnd} />
-     
+      {
+        myTasks.map(({id, text, taskstatus}, index)=>{
+          return(
+            <li className="flex justify-start items-center px-5 gap-5 py-4 border-b">
+            <input type="checkbox"  id={"check"+ id} defaultChecked={taskstatus === "completed" ? "defaultChecked": ""} className="accent-emerald-700 shadow checked:shadow-black/80 outline-none h-7 bg-black" />
+            <label htmlFor={"check"+ id} className="">{text}</label>
+            </li>    
+          )
+        })
+      }
          
           <div className="flex p-5 pb-2">
             <p className="font-mono text-black text-center">Trust yourself that you can do it and get it</p>
