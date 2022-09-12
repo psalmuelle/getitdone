@@ -9,7 +9,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 const DraggablePlans = (props) => {
     return(
 <DragDropContext onDragEnd={props.handleOnDragEnd}>
-        <Droppable droppableId="plans">
+        <Droppable droppableId="plan">
         {
             (provided) =>(
                 <ul className="plans" {...provided.droppableProps} ref= {provided.innerRef}>
@@ -19,7 +19,7 @@ const DraggablePlans = (props) => {
                             return (
                                 <Draggable key={id} draggableId={id} index={index} >
                                     {(provided)=>(
-                                     <li key={id} className="border-b" ref={provided.innerRef}  {...provided.draggableProps} {...provided.dragHandleProps} >
+                                     <li key={id} className="border-b" ref={provided.innerRef}  {...provided.draggableProps} {...provided.dragHandleProps}>
                                        &#x2022; {plan}
                                      </li>    
                                     )}

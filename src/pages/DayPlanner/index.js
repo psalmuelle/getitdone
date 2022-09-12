@@ -40,13 +40,15 @@ const myPlans =[
 
 export default function DayPlanner(){
    const [time, setTime] = useState(new Date())
-   const [lists, updateLists] = useState({"finalist":[]})
+   const [lists, updateLists] = useState([0,1,2,3,4,5,6])
    const handleOnDragEnd = (result)=>{
     if(!result.destination) return;
-    const items = Array.from(lists);
+    const items = Array.from(lists)
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
     updateLists(items)
+    console.log(items)
+ 
   }
     useEffect(() => {
         const interval = setInterval(() =>{
