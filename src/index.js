@@ -12,7 +12,7 @@ root.render(
 
 <BrowserRouter>
   <Routes>
-    <Route path='/landing-page'element ={<LandingPage/>}/>
+    <Route path='/'element ={<LandingPage/>}/>
     <Route path='*'element ={<DashBoard/>}/>
   </Routes>
 </BrowserRouter>

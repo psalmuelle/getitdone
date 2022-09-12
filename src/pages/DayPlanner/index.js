@@ -51,6 +51,7 @@ export default function DayPlanner(){
  
   }
     useEffect(() => {
+        document.title= "Slick | planner"
         const interval = setInterval(() =>{
             setTime(new Date(), 1000)
         })

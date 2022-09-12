@@ -24,7 +24,7 @@ const [width, setWidth]= useState(0)
 const carousel = useRef()
 
  useEffect(()=>{
-  document.title = "slick--Landing-Page"
+  document.title = "Slick"
 setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
  }, [])
 

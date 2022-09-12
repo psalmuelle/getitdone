@@ -37,6 +37,11 @@ const myTasks =[
 export default function HomeSection(){
   const [addList, setAddList] = useState(false)
  
+  useEffect(
+    ()=>{
+      document.title= "Slick | home"
+    }
+  )
     return(
       <div >
 
