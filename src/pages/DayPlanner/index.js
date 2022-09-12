@@ -62,14 +62,14 @@ export default function DayPlanner(){
 
 
     return(
-        <div className="bg-black/5 h-screen ">
+        <div className="bg-black/5 h-full ">
     <div className=" py-10 flex flex-col justify-center items-center gap-4">    
    <div className="text-4xl md:text-5xl font-bold text-blue-700 font-mono leading-0">{time.toLocaleTimeString()} </div>
    <div className="text-2xl md:text-4xl"> {time.toDateString()}</div>
  </div>
  <hr/>
  <p className="mx-auto text-slate-900 text-center">NB: Added plan expirers after 24 hours </p>
- <section className="my-4 max-w-lg text-slate-900 mx-auto bg-white p-4 rounded">
+ <section className="my-4 max-w-lg text-slate-900 mx-auto  p-4 rounded h-fit mb-4">
 
 <DraggablePlans myPlans={myPlans} handleOnDragEnd= {handleOnDragEnd} />
 
@@ -80,8 +80,11 @@ export default function DayPlanner(){
 
 
  </section>
+ <div className="mb-10">
 
   <AddPlan/>
+ </div>
+
         </div>
 
     )

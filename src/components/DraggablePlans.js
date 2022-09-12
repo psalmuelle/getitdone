@@ -12,15 +12,16 @@ const DraggablePlans = (props) => {
         <Droppable droppableId="plan">
         {
             (provided) =>(
-                <ul className="plans" {...provided.droppableProps} ref= {provided.innerRef}>
+                <ul className="plans " id="plans" {...provided.droppableProps} ref= {provided.innerRef}>
                     {
 
                         props.myPlans.map(({id, plan}, index)=>{
                             return (
                                 <Draggable key={id} draggableId={id} index={index} >
                                     {(provided)=>(
-                                     <li key={id} className="border-b" ref={provided.innerRef}  {...provided.draggableProps} {...provided.dragHandleProps}>
-                                       &#x2022; {plan}
+                                     <li key={id} 
+                                     className="border-b py-4 bg-green-500 mb-1 rounded px-2" ref={provided.innerRef}  {...provided.draggableProps} {...provided.dragHandleProps} >
+                                       {plan}
                                      </li>    
                                     )}
                                 </Draggable>
