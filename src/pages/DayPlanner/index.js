@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import { AddPlan } from "../../components/Form";
 import DraggablePlans from "../../components/DraggablePlans";
 
@@ -19,7 +19,19 @@ const myPlans =[
     "id": "4",
     "plan": "Complete the header and footer of my portfolio website"
   },
-  
+  {
+    "id": "5",
+    "plan": "This is a plan"
+  },
+  {
+    "id": "6",
+    "plan": "Yet another plan"
+  },
+  {
+    "id": "7",
+    "plan": "A plan"
+  },
+
   ]
   
 
@@ -36,7 +48,6 @@ export default function DayPlanner(){
     items.splice(result.destination.index, 0, reorderedItem);
     updateLists(items)
   }
-   
     useEffect(() => {
         const interval = setInterval(() =>{
             setTime(new Date(), 1000)
@@ -55,10 +66,8 @@ export default function DayPlanner(){
  </div>
  <hr/>
  <p className="mx-auto text-slate-900 text-center">NB: Added plan expirers after 24 hours </p>
- <ul className="my-4 max-w-lg text-slate-900 mx-auto bg-white p-4 rounded">
-<p className="border-b ">&#x2022; Create a Library</p>
-<p className="border-b mt-3">&#x2022; Create a Library</p>
-<p className="border-b mt-3">&#x2022; Create a Library</p>
+ <section className="my-4 max-w-lg text-slate-900 mx-auto bg-white p-4 rounded">
+
 <DraggablePlans myPlans={myPlans} handleOnDragEnd= {handleOnDragEnd} />
 
 
@@ -67,7 +76,7 @@ export default function DayPlanner(){
 
 
 
- </ul>
+ </section>
 
   <AddPlan/>
         </div>

@@ -19,8 +19,8 @@ const DraggablePlans = (props) => {
                             return (
                                 <Draggable key={id} draggableId={id} index={index} >
                                     {(provided)=>(
-                                     <li className="border-b" ref={provided.innerRef}  {...provided.draggableProps} {...provided.dragHandleProps}>
-                                        {plan}
+                                     <li key={id} className="border-b" ref={provided.innerRef}  {...provided.draggableProps} {...provided.dragHandleProps} >
+                                       &#x2022; {plan}
                                      </li>    
                                     )}
                                 </Draggable>
