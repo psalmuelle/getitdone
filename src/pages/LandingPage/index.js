@@ -84,9 +84,9 @@ setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
             
             className="bg-white py-4 border-t sm:hidden absolute w-full top-full right-0">
                <ul className="flex justify-center items-center list-none  px-1 flex-col   gap-4 text-slate-800">
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Demo</a></li>
-            <li><a href="#">Contact me</a></li>
+            <li onClick={()=>{ setPopup({...popup, menu:false})}}><a href="#">Features</a></li>
+            <li onClick={()=>{ setPopup({...popup, menu:false})}}><a href="#">Demo</a></li>
+            <li onClick={()=>{ setPopup({...popup, menu:!popup.menu})}}><a href="#">Contact me</a></li>
             <li className="text-lg" 
             onClick={()=>{ setPopup({...popup, login:!popup.login})}}>Login</li>
             <li className="text-lg" 
