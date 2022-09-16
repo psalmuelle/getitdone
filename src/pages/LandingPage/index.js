@@ -119,8 +119,9 @@ setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
       <main className="p-4 ">
      
         <h2 className="border-b-4 w-fit  border-indigo-900 mx-auto text-black/90 ">Features</h2>
-        <motion.div initial={{y:60}} whileInView={{y:0}} transition={{type:"spring", stiffness:100, delay:0.09}}>
-          <motion.section whileInView={{ opacity:1}} initial={{opacity:0.2}} transition={{type:"spring", stiffness:100, delay:0.09}} className="flex shadow rounded flex-wrap items-center justify-center p-4 py-6 my-10 bg-white gap-8 lg:gap-16">
+        <motion.div initial={{y:40}} whileInView={{y:0}} 
+       transition={{type:"spring", stiffness:100, delay:0.09}}>
+          <motion.section whileInView={{ y:0}} initial={{y:20}} transition={{type:"spring", stiffness:100, delay:0.09}} className="flex shadow rounded flex-wrap items-center justify-center p-4 py-6 my-10 bg-white gap-8 lg:gap-16">
             <div className="max-w-xl text-slate-900 ">
             <h2 className="font-bold text-xl ">Project Management</h2>
             <p className="mt-10 max-w-md mb-8 leading-7">You can manage and keep track of your mini projects. Slick app helps you keep track of your portfolio projects.</p>
@@ -129,7 +130,7 @@ setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
             <img src={feature1} className="block w-full  max-w-xs "/>
           </motion.section>
 
-          <motion.section whileInView={{ opacity:1}} initial={{opacity:0.2}} transition={{type:"spring", stiffness:100, delay:0.09}} className="flex shadow flex-row-reverse rounded flex-wrap items-center  justify-center p-4 py-6 my-10 bg-white gap-8 lg:gap-16">
+          <motion.section whileInView={{ y:0}} initial={{y:20}} transition={{type:"spring", stiffness:100, delay:0.09}} className="flex shadow flex-row-reverse rounded flex-wrap items-center  justify-center p-4 py-6 my-10 bg-white gap-8 lg:gap-16">
             <div className="max-w-xl text-slate-900 ">
             <h2 className="font-bold text-xl ">Keep Your Ideas in One Place</h2>
             <p className="mt-10 max-w-md mb-8 leading-7">Write about your thoughts or ideas and come back to check it out anytime. You can keep log of future ideas for your projects on this app.</p>
@@ -138,7 +139,7 @@ setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
             <img src={feature2} className="block w-full max-w-sm  "/>
           </motion.section>
 
-          <motion.section whileInView={{ opacity:1}} initial={{opacity:0.2}} transition={{type:"spring", stiffness:100, delay:0.09}} className="flex shadow rounded flex-wrap items-center justify-center p-4 my-10 bg-white gap-8 lg:gap-16 py-10">
+          <motion.section whileInView={{ y:0}} initial={{y:20}} transition={{type:"spring", stiffness:100, delay:0.09}} className="flex shadow rounded flex-wrap items-center justify-center p-4 my-10 bg-white gap-8 lg:gap-16 py-10">
             <div className="max-w-xl text-slate-900 ">
             <h2 className="font-bold text-xl ">Daily Todo List</h2>
             <p className="mt-10 max-w-md mb-8 leading-7">This webapp comes with a simple and easy to track todo list. Daily todo automatically expires after 24 hours. Your list doesn't have to get messy!</p>

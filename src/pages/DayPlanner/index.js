@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef} from "react";
 import { AddPlan } from "../../components/Form";
-import DraggableComponent from "../../components/DraggableComponent";
+import TileList from "../../components/DraggableComponent";
 
 const myPlans =[
     {
@@ -71,7 +71,7 @@ export default function DayPlanner(){
  <p className="mx-auto text-slate-900 text-center">NB: Added plan expirers after 24 hours </p>
  <section className="my-4 max-w-lg text-slate-900 mx-auto  p-4 rounded h-fit mb-4">
 
-<DraggableComponent/>
+<TileList/>
 
 
 

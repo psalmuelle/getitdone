@@ -1,18 +1,44 @@
-import React from "react";
+import React, {useState} from "react";
+import DnDList from "react-dnd-list"
 
 
 
 
 
 
-
-const DraggableComponent = (props) => {
+const Item = (props) => {
+    const dnd = props.dnd
     return(
-<div>
-
-</div>
+    <li
+    style={{...dnd.item.styles, ...dnd.handler.styles}}
+    className= {dnd.item.classes}
+    ref={dnd.item.ref}
+    {...dnd.handler.listeners}
+    >
+        <div
+        className="text-lg"
+        style={{height:props.item.height}}
+        >
+         {props.item.value}
+        </div>
+    </li>
 
     )
     }
 
-export default DraggableComponent;
+const TileList =props=>{
+    const [list, setList] = useState(props.item)
+    return (
+        <ul>
+            <DnDList
+            items= {list}
+            itemComponent={Item}
+            setList= {setList}
+            setSwapThreshold={size =>size * .75}
+            setOverflowThreshold={()=> 50}
+            />
+        </ul>
+    )
+}
+
+export default TileList
