@@ -5,6 +5,7 @@ import SlickLogo from "../images/slick.svg";
 import NoteIcon from "../images/icons8-note.svg"
 import ClockIcon from "../images/icons8-planner-50.png"
 import SignoutIcon from "../images/icons8-sign-out.svg"
+import HomeIcon from "../images/home.png"
 
 
 
@@ -74,7 +75,7 @@ const [menu, setMenu]= useState(false)
 <NavLink to="/home">
           <div onClick={()=> setMenu(false)} className="flex gap-4  justify-center items-center " >
 
-<img src="https://img.icons8.com/external-kmg-design-basic-outline-kmg-design/32/000000/external-dashboard-ui-essential-kmg-design-basic-outline-kmg-design.png" alt="dashboard" className="w-6 block -mb-px"/>
+<img src={HomeIcon} alt="dashboard" className="w-6 block -mb-px"/>
 <p className="">Home</p>
 </div>
           </NavLink>
