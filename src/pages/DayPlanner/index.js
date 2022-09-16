@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import { AddPlan } from "../../components/Form";
-import TileList from "../../components/DraggableComponent";
+import DraggableComponent from "../../components/DraggableComponent";
+
 
 const myPlans =[
     {
@@ -33,30 +34,23 @@ const myPlans =[
   },
 
   ]
-  
+const plans = []
 
-
+myPlans.map(({id, plan},i)=>{
+  plans.push(plan)
+  return plans
+})
 
 
 export default function DayPlanner(){
    const [time, setTime] = useState(new Date())
-   const [lists, updateLists] = useState([0,1,2,3,4,5,6])
-   const handleOnDragEnd = (result)=>{
-    if(!result.destination) return;
-    const items = Array.from(lists)
-    const [reorderedItem] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItem);
-    updateLists(items)
-    
- 
-  }
+
     useEffect(() => {
-        document.title= "Slick | planner"
         const interval = setInterval(() =>{
             setTime(new Date(), 1000)
-        })
-      
+        })   
     }, [time])
+    useEffect(()=> {document.title= "Slick | planner"}, [])
 
 
 
@@ -71,8 +65,8 @@ export default function DayPlanner(){
  <p className="mx-auto text-slate-900 text-center">NB: Added plan expirers after 24 hours </p>
  <section className="my-4 max-w-lg text-slate-900 mx-auto  p-4 rounded h-fit mb-4">
 
-<TileList/>
 
+<DraggableComponent list={plans}/>
 
 
 
