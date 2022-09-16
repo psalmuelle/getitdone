@@ -15,7 +15,7 @@ export default function Notes(){
         <h1 className="bg-white text-lg italic text-center py-8 text-indigo-800">Keep Your Notes/Ideas Here!</h1>
          
         
-        <div className="bg-white/90 flex items-center justify-center mb-4 py-4">
+        <div className="bg-white/90 flex items-center justify-center mb-4 px-4 py-4">
           <Note/>
         </div>
         <section className="my-10 shadow">

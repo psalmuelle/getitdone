@@ -66,11 +66,7 @@ export default function DayPlanner(){
  <section className="my-4 max-w-lg text-slate-900 mx-auto  p-4 rounded h-fit mb-4">
 
 
-<DraggableComponent list={plans}/>
-
-
-
-
+<DraggableComponent list={plans} />
 
 
  </section>
