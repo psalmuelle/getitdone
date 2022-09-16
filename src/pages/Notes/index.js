@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
-import { motion } from "framer-motion";
 import { AddNotes } from "../../components/Form";
 import Note from "../../components/Note";
+import Layout from "../../components/DashBoardLayout";
 
-export default function Notes(){
+export function Notes(){
 
     useEffect(
         ()=>{
@@ -28,4 +28,14 @@ export default function Notes(){
             </div>
         </div>
     )
+}
+
+export default function NotePage(){
+  return (
+    <>
+    <Layout>
+      <Notes/>
+    </Layout>
+    </>
+  )
 }
