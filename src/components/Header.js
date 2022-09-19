@@ -30,7 +30,7 @@ const [menu, setMenu]= useState(false)
 
         
 
-          <NavLink to="/planner">
+          <NavLink to="planner">
         <div  onClick={()=> setMenu(false)} className=" flex flex-col justify-center items-center 
         ">
         <img src={ClockIcon} alt="clock-icon" className="w-8 block mx-auto"/>
@@ -39,7 +39,7 @@ const [menu, setMenu]= useState(false)
           </NavLink>
 
        
-          <NavLink to="/notes">
+          <NavLink to="notes">
         <div onClick={()=> setMenu(false)} className="flex flex-col justify-center items-center ">
 
         <img src={NoteIcon} alt="note-icon" className="w-8 block -mb-px"/>
@@ -80,7 +80,7 @@ const [menu, setMenu]= useState(false)
 </div>
           </NavLink>
             
-          <NavLink to="/planner">
+          <NavLink to="planner">
           <div onClick={()=> setMenu(false)} className="flex gap-4  justify-center items-center " >
 
 <img src={ClockIcon} alt="note-icon" className="w-6 block -mb-px"/>
@@ -89,7 +89,7 @@ const [menu, setMenu]= useState(false)
           </NavLink>
 
        
-          <NavLink to="/notes">
+          <NavLink to="notes">
         <div onClick={()=> setMenu(false)} className="flex gap-4 justify-center items-center ">
 
         <img src={NoteIcon} alt="note-icon" className="w-6 block -mb-px"/>
