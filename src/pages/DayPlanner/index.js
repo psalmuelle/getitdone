@@ -1,7 +1,6 @@
 import React, {useState, useEffect, useRef} from "react";
 import { AddPlan } from "../../components/Form";
 import DraggableComponent from "../../components/DraggableComponent";
-import Layout from "../../components/DashBoardLayout";
 
 
 const myPlans =[
@@ -43,7 +42,7 @@ myPlans.map(({id, plan},i)=>{
 })
 
 
-export function DayPlanner(){
+export default function DayPlanner(){
    const [time, setTime] = useState(new Date())
 
     useEffect(() => {
@@ -81,10 +80,3 @@ export function DayPlanner(){
     )
 }
 
-export default function PlannerPage (){
-  return(
-    <Layout>
-      <DayPlanner/>
-    </Layout>
-  )
-}
