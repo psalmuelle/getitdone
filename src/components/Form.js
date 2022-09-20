@@ -3,13 +3,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { motion } from "framer-motion";
 import * as yup from "yup";
-
-
-
+import AuthService from "../services/auth.service";
+import { useDispatch } from "react-redux";
+import { checkAuthentication } from "../redux/userSlice";
 
 //Register Component
 export function Register() {
-
+  const dispatch = useDispatch()
   const formSchema = yup.object().shape({
     password: yup.string().min(8),
   });
@@ -21,15 +21,16 @@ export function Register() {
   } = useForm({ resolver: yupResolver(formSchema) });
 
   const onSubmit = (data) => {
-    console.log(data)
-    
+    AuthService.register(data).then((res)=>{
 
-   
+    dispatch(checkAuthentication())
+
+    }) 
   };
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit) }
       className=' flex flex-col p-4 m-auto flex-nowrap justify-items-start items-start '>
       <label
         htmlFor='username'

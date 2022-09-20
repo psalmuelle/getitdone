@@ -16,14 +16,15 @@ const register=(data)=>{
         email: data.email,
         password: data.password
 
-      }).then((response)=>{
-        console.log(response.data)
-        
-        response.data?.user_info?.token && localStorage.setItem("user", JSON.stringify(response.data))
+      }).then((response)=>{        
+        response.data?.user_info && localStorage.setItem("user", JSON.stringify(response.data.user_info))
+        console.log(response)
+
+        response.data?.token && localStorage.setItem("token", JSON.stringify(response.data.token))
 
       }).catch(err =>{
         console.log(err)
-        alert(err)
+        alert(JSON.stringify(err.response.data))
       })
     )
 }
@@ -52,12 +53,6 @@ return (
     client
     .get("/user/", {
         headers: authHeader()
-    })
-    .then(res=>{
-        console.log(res.data)
-    })
-    .catch((err)=>{
-        console.log(err)
     })
 )
 }
