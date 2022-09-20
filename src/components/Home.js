@@ -110,7 +110,7 @@ export default function HomeSection() {
                   }
                   className='accent-emerald-700 shadow checked:shadow-black/80 outline-none h-7 bg-black'
                 />
-                <label htmlFor={"check" + id} className={taskstatus === "completed" ? "line-through" : ""}>
+                <label htmlFor={"check" + id} className={taskstatus === "completed" ? "line-through text-green-500" : ""}>
                   {text}
                 </label>
               </li>

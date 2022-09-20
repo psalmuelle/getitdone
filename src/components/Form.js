@@ -2,11 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { motion } from "framer-motion";
-
 import * as yup from "yup";
+
+
+
 
 //Register Component
 export function Register() {
+
   const formSchema = yup.object().shape({
     password: yup.string().min(8),
   });
@@ -16,7 +19,13 @@ export function Register() {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(formSchema) });
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = (data) => {
+    console.log(data)
+    
+
+   
+  };
 
   return (
     <form
@@ -76,6 +85,7 @@ export function Register() {
     </form>
   );
 }
+
 
 //Login Component
 export function Login() {

@@ -7,12 +7,13 @@ import HomeSection from "./components/Home";
 import Notes from "./pages/Notes";
 import DayPlanner from "./pages/DayPlanner";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-
+import store from './redux/store';
+import { Provider } from 'react-redux';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+<Provider store={store}>
 <BrowserRouter>
    <Routes>
       <Route path='/' element={<LandingPage/>} />
@@ -25,6 +26,7 @@ root.render(
    </Routes>
 
 </BrowserRouter>
+</Provider>
 
 );
 
