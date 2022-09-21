@@ -21,11 +21,11 @@ export function Register() {
   } = useForm({ resolver: yupResolver(formSchema) });
 
   const onSubmit = (data) => {
-    AuthService.register(data).then((res)=>{
-
-    dispatch(checkAuthentication())
-
-    }) 
+    AuthService.register(data).then(()=>{  
+   dispatch(checkAuthentication())  
+    })
+    
+   
   };
 
   return (
@@ -90,12 +90,18 @@ export function Register() {
 
 //Login Component
 export function Login() {
+  const dispatch = useDispatch()
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    
+    AuthService.login(data).then(()=>{  
+     dispatch(checkAuthentication())  
+       })
+  };
 
   return (
     <form
@@ -103,19 +109,15 @@ export function Login() {
       onSubmit={handleSubmit(onSubmit)}>
       <label
         className="m-2 mt-3 ml-0 font-medium before:content-['*'] before:text-red-600 before:mr-px md:text-lg "
-        htmlFor='email'>
-        Email
+        htmlFor='username'>
+        Username
       </label>
       <input
         className='shadow appearance-none border rounded w-full py-2 h-11 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline min-w-max max-w-sm'
         type='text'
-        id='email'
-        {...register("email", {
+        id='username'
+        {...register("username", {
           required: true,
-          pattern: {
-            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-            message: "Invalid email address",
-          },
         })}
       />
 

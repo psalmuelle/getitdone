@@ -12,16 +12,12 @@ export const userSlice = createSlice({
     reducers: {
         checkAuthentication: (state)=>{
             AuthService.getUser().then((res)=>{
-                state.token = localStorage.getItem("token")
-                state.user_data = res.data.user_data
-                state.authenticated= true
-                state.NotAuthenticated= false
-            }).catch((err)=>{
-                state.token = null
-                state.user_data = err.response.data
-                state.authenticated= false
-                state.NotAuthenticated= true
+                console.log(res)
             })
+            state.user_data = JSON.parse(localStorage.getItem("user")) 
+            state.token =JSON.parse(localStorage.getItem("token"))
+            state.authenticated= true
+            state.NotAuthenticated= false
 
         }
         
