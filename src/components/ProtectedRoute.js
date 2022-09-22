@@ -7,16 +7,18 @@ const ProtectedRoute=(props)=>{
  const navigate = useNavigate()
 
  useEffect(()=>{
- if (!authenticated){
+ if ("token" in localStorage){
+    return
+ }else{
     navigate("/")
  }
  },[])
 
-if (authenticated){
+
     return (
         props.children
     )
-}
+
 
 
 }

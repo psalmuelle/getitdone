@@ -66,12 +66,6 @@ const getPlan=()=>{
       .get("/plan/get/", {
         headers: authHeader()
       })
-      .then((response)=>{
-        console.log(response.data)
-      }).catch(err =>{
-        console.log(err)
-        alert(err)
-      })
     )
 }
 

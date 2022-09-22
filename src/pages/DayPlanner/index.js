@@ -1,56 +1,45 @@
 import React, {useState, useEffect, useRef} from "react";
 import { AddPlan } from "../../components/Form";
 import DraggableComponent from "../../components/DraggableComponent";
+import TodoService from "../../services/user.service"
 
 
-const myPlans =[
-    {
-    "id": "1",
-    "plan": "Complete the header and footer of my portfolio website"
-  },
-  {
-    "id": "2",
-    "plan": "Complete the header and footer of my portfolio website"
-  },
-  {
-    "id": "3",
-    "plan": "Complete the header and footer of my portfolio website"
-  },
-  {
-    "id": "4",
-    "plan": "Complete the header and footer of my portfolio website"
-  },
-  {
-    "id": "5",
-    "plan": "This is a plan"
-  },
-  {
-    "id": "6",
-    "plan": "Yet another plan"
-  },
-  {
-    "id": "7",
-    "plan": "A plan"
-  },
-
-  ]
-const plans = []
-
-myPlans.map(({id, plan},i)=>{
-  plans.push(plan)
-  return plans
-})
 
 
 export default function DayPlanner(){
    const [time, setTime] = useState(new Date())
-
+   const [requests, setRequests] = useState([])
+   const [plans, setPlans] = useState([])
+   const [loading, setLoading] = useState(true)
     useEffect(() => {
         const interval = setInterval(() =>{
-            setTime(new Date(), 1000)
-        })   
+            setTime(new Date())
+        }, 1000)   
     }, [time])
-    useEffect(()=> {document.title= "Slick | planner"}, [])
+
+    useEffect(()=> {
+      document.title= "Slick | planner"
+
+      TodoService.getPlan().then((res)=>{
+       res.data.forEach((data)=>{
+        setRequests(requests.push(data))
+      })
+      
+        
+      })
+      .catch((err)=> console.log(err))
+      .then(()=>{
+        console.log(requests[1])
+        requests.forEach(({id,plan,created_on},i)=>{
+        console.log(plan, created_on)
+        setPlans(plans.unshift(plan))
+        })
+        setLoading(false)
+        
+      })
+   
+    }, [])
+   
 
 
 
@@ -65,7 +54,13 @@ export default function DayPlanner(){
  <p className="mx-auto text-slate-900 text-center">NB: Added plan expirers after 24 hours </p>
  <section className="my-4 max-w-lg text-slate-900 mx-auto  p-4 rounded h-fit mb-4">
 
+{
+  loading && (
+     <div>
 
+     </div>
+  )
+}
 <DraggableComponent list={plans} />
 
 
