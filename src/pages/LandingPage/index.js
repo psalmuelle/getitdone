@@ -8,12 +8,20 @@ import feature3 from "../../images/feat3.jpg";
 import HeroImg from "../../images/3d-flame-man.png";
 import { AnimatedTextCharacter, AnimatedTextWord } from "../../components/wayyTexts";
 import { Testimonials } from "../../components/Testimonials";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { checkAuthentication } from "../../redux/userSlice";
+import AuthService from "../../services/auth.service"
 
 
 
 
 const LandingPage = () => {
 const heroMsg = " A Simple Project and Time Management App For Tech Noobies"
+
+const loggedIn = useSelector(state=>state.user.authenticated)
+const navigate = useNavigate()
+const dispatch = useDispatch()
 
 const [popup, setPopup] = useState({
   login: false,
@@ -26,16 +34,31 @@ const carousel = useRef()
  useEffect(()=>{
   document.title = "Slick"
 setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+
+AuthService.getUser().then((res)=>{
+  if (Object.keys(res.data).length >= 1){
+    dispatch(checkAuthentication())
+    }else{
+      localStorage.clear()
+    }
+  })
+
  }, [])
 
+
+ useEffect(()=>{
+  if (loggedIn){
+    return navigate("/home")
+  }
+ }, [loggedIn])
 
 
   return (
     <div className='relative '>
-<AnimatePresence>
+
 {
   (popup.login || popup.signup) && (
-      <motion.div initial={{opacity:0}} animate={{opacity:1 }} exit={{opacity:0}} className="fixed top-0 right-0 w-screen h-screen z-40 backdrop-blur">
+      <div  className="fixed top-0 right-0 w-screen h-screen z-40 backdrop-blur">
         <div className="w-full h-full flex justify-center items-center bg-black/20 " >
           <div className="flex justify-center items-center h-fit backdrop-blur-lg p-4 rounded-lg relative">
 
@@ -46,10 +69,10 @@ setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
           </div>
        
         </div>
-      </motion.div>
+      </div>
   )
 }
-</AnimatePresence>
+
 
  <motion.header animate={{position:"sticky", backdropFilter:"blur(15px)" , WebkitBackdropFilter: "blur(5px)" , top:0 }}        
         className='w-full  px-4 bg-unset flex  justify-between gap-4 z-10'>

@@ -9,6 +9,7 @@ import DayPlanner from "./pages/DayPlanner";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import store from './redux/store';
 import { Provider } from 'react-redux';
+import ProtectedRoute from './components/ProtectedRoute';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,12 +18,17 @@ root.render(
 <BrowserRouter>
    <Routes>
       <Route path='/' element={<LandingPage/>} />
-      <Route path='/home' element= {<DashBoard/>}>
+      <Route path='/home' element= {
+         <ProtectedRoute>
+            <DashBoard/>
+         </ProtectedRoute>
+      }>
         <Route  index element={<HomeSection/>} />
         <Route path='notes' element={<Notes/>}/>
         <Route path='planner' element={<DayPlanner/>}/>
         <Route path='*' element={<HomeSection/>}/>
       </Route>
+      <Route path='*' element={<LandingPage/>} />
    </Routes>
 
 </BrowserRouter>

@@ -4,11 +4,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { motion } from "framer-motion";
 import * as yup from "yup";
 import AuthService from "../services/auth.service";
-import { useDispatch } from "react-redux";
+import userService from "../services/user.service";
+import { useDispatch, useSelector } from "react-redux";
 import { checkAuthentication } from "../redux/userSlice";
 
 //Register Component
 export function Register() {
+  
   const dispatch = useDispatch()
   const formSchema = yup.object().shape({
     password: yup.string().min(8),
@@ -21,8 +23,9 @@ export function Register() {
   } = useForm({ resolver: yupResolver(formSchema) });
 
   const onSubmit = (data) => {
+  
     AuthService.register(data).then(()=>{  
-   dispatch(checkAuthentication())  
+   dispatch(checkAuthentication()) 
     })
     
    
@@ -80,7 +83,7 @@ export function Register() {
 
       <button
         className=' bg-gradient-to-r from-sky-500 to-indigo-500 py-4 px-20  mt-8 rounded-md  w-full  min-w-max max-w-sm text-white hover:bg-indigo-400 active:bg-indigo-600 shadow-lg '
-        type='submit'>
+        type='submit'  >
         Register
       </button>
     </form>
@@ -90,6 +93,7 @@ export function Register() {
 
 //Login Component
 export function Login() {
+  const [submitted, setSubmitted]= useState(false)
   const dispatch = useDispatch()
   const {
     register,
@@ -97,10 +101,19 @@ export function Login() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    
-    AuthService.login(data).then(()=>{  
-     dispatch(checkAuthentication())  
-       })
+    setSubmitted(true)
+    AuthService.login(data).then((response)=>{        
+      response.data?.username && localStorage.setItem("user", JSON.stringify(response.data)) 
+     response.data?.token && localStorage.setItem("token", JSON.stringify(response.data.token))
+     response.data?.token &&  dispatch(checkAuthentication())
+   
+     console.log(response)
+    }).catch(err =>{
+      console.log(err)
+      alert(JSON.stringify(err.response.data))
+      setSubmitted(false)
+    })
+ 
   };
 
   return (
@@ -140,7 +153,7 @@ export function Login() {
 
       <button
         className=' bg-gradient-to-r from-sky-500 to-indigo-500 py-4 px-20  mt-8 rounded-md  w-full  min-w-max max-w-sm text-white hover:bg-indigo-400 active:bg-indigo-600 shadow-lg '
-        type='submit'>
+        type='submit' disabled={submitted}>
         Login
       </button>
     </form>
@@ -162,7 +175,7 @@ export function AddTodo() {
   } = useForm({ resolver: yupResolver(formSchema) });
 
   const onSubmit = (data) => {
-    console.log(data);
+    userService.createTodo(data)
   };
 
   return (
@@ -232,7 +245,7 @@ export function AddTodoList() {
   } = useForm({ resolver: yupResolver(formSchema) });
 
   const onSubmit = (data) => {
-    console.log(data);
+    
 
     reset();
   };
@@ -260,8 +273,7 @@ export function AddTodoList() {
 export function AddNotes() {
   const { register, reset, handleSubmit } = useForm();
   const onAddNote = (data) => {
-    console.log(data);
-    reset();
+    userService.createNote(data) && reset();
   };
   return (
     <form
@@ -306,9 +318,8 @@ export function AddPlan() {
   const { register, handleSubmit, reset, formState: errors } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-
-    reset();
+    userService.createPlan(data) &&
+  reset();
   };
 
   return (
