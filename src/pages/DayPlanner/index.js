@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef} from "react";
 import { AddPlan } from "../../components/Form";
 import DraggableComponent from "../../components/DraggableComponent";
 import TodoService from "../../services/user.service"
-
+import { motion } from "framer-motion";
 
 
 
@@ -31,7 +31,7 @@ export default function DayPlanner(){
       .then(()=>{
         console.log(requests[1])
         requests.forEach(({id,plan,created_on},i)=>{
-        console.log(plan, created_on)
+        console.log(Date.parse(created_on))
         setPlans(plans.unshift(plan))
         })
         setLoading(false)
@@ -56,12 +56,15 @@ export default function DayPlanner(){
 
 {
   loading && (
-     <div>
-
-     </div>
+     <motion.div initial={{transform: "rotate(0deg"}} animate={{transform: "rotate(360deg"}} transition={{repeat: Infinity}} className="w-10 h-10 rounded-full border-4 border-t-violet-600 mx-auto  "> 
+     </motion.div>
   )
 }
+
 <DraggableComponent list={plans} />
+
+  
+
 
 
  </section>
