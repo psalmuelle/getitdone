@@ -3,14 +3,19 @@ import { AddPlan } from "../../components/Form";
 import DraggableComponent from "../../components/DraggableComponent";
 import TodoService from "../../services/user.service"
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
+
+
 
 
 
 export default function DayPlanner(){
    const [time, setTime] = useState(new Date())
-   const [requests, setRequests] = useState([])
    const [plans, setPlans] = useState([])
+ 
    const [loading, setLoading] = useState(true)
+   const updatePlanner = useSelector(state=> state.planner.changes)
+
     useEffect(() => {
         const interval = setInterval(() =>{
             setTime(new Date())
@@ -21,27 +26,25 @@ export default function DayPlanner(){
       document.title= "Slick | planner"
 
       TodoService.getPlan().then((res)=>{
-       res.data.forEach((data)=>{
-        setRequests(requests.push(data))
+       res.data.forEach(({id, plan},i)=>{
+         setPlans(plans.unshift(plan))
+         
+        setLoading(false)
       })
       
-        
-      })
-      .catch((err)=> console.log(err))
-      .then(()=>{
-        console.log(requests[1])
-        requests.forEach(({id,plan,created_on},i)=>{
-        console.log(Date.parse(created_on))
-        setPlans(plans.unshift(plan))
-        })
-        setLoading(false)
-        
-      })
+      
+    })
    
-    }, [])
+    .catch((err)=> console.log(err))
+    
+    console.log(plans)
+    
    
-
-
+    }, [updatePlanner])
+   
+function allPlans(){
+ return plans
+}
 
 
     return(
@@ -56,7 +59,7 @@ export default function DayPlanner(){
 
 {
   loading && (
-     <motion.div initial={{transform: "rotate(0deg"}} animate={{transform: "rotate(360deg"}} transition={{repeat: Infinity}} className="w-10 h-10 rounded-full border-4 border-t-violet-600 mx-auto  "> 
+     <motion.div initial={{transform: "rotate(0deg"}} animate={{transform: "rotate(360deg"}} transition={{repeat: Infinity, duration: 1}} className="w-10 h-10 rounded-full border-4 border-t-violet-600 mx-auto  "> 
      </motion.div>
   )
 }

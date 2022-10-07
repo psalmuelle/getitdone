@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import * as yup from "yup";
 import AuthService from "../services/auth.service";
 import userService from "../services/user.service";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { checkAuthentication } from "../redux/userSlice";
+import { updatePlanner } from "../redux/plannerSlice";
 
 //Register Component
 export function Register() {
@@ -316,10 +317,16 @@ export function AddNotes() {
 
 export function AddPlan() {
   const { register, handleSubmit, reset, formState: errors } = useForm();
-
+   const dispatch = useDispatch()
   const onSubmit = (data) => {
-    userService.createPlan(data) &&
+    userService.createPlan(data).then(()=>{
+      setTimeout(()=>{
+        dispatch(updatePlanner())
+      }, 2000)
+    }).catch(err=> console.log(err)) 
+    .then (()=> window.location.reload())
   reset();
+  
   };
 
   return (
