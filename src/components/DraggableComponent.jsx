@@ -73,7 +73,7 @@ useEffect(()=>{
         renderItem={({ value, props, isDragged, isSelected }) => (
           <li
             {...props}
-            className=" mb-6 list-none bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 border-slate-500 rounded-md shadow-md text-slate-900  shadow-black/70 text-left h-fit"
+            className=" mb-6 list-none bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 border-slate-500 rounded-md shadow-md text-gray-900 font-medium shadow-black/70 text-left h-fit"
             style={{
               ...props.style,
               cursor: isDragged ? 'grabbing' : 'inherit', 

@@ -26,10 +26,21 @@ export default function DayPlanner(){
       document.title= "Slick | planner"
 
       TodoService.getPlan().then((res)=>{
-       res.data.forEach(({id, plan},i)=>{
+       res.data.forEach(({id, plan, created_on},i)=>{
          setPlans(plans.unshift(plan))
-         
-        setLoading(false)
+         setLoading(false)
+
+         const now = new Date()
+         const msBetweenDates = Math.abs(Date.parse(created_on) - now.getTime())
+
+         const hoursBetweenDates = msBetweenDates / (60*60*1000)
+
+        
+         if(hoursBetweenDates > 24){
+          TodoService.deletePlan(id)
+         }
+        
+       
       })
       
       
@@ -37,6 +48,7 @@ export default function DayPlanner(){
    
     .catch((err)=> console.log(err))
     
+   
     console.log(plans)
     
    
@@ -48,7 +60,8 @@ function allPlans(){
 
 
     return(
-        <div className="bg-black/5 h-full ">
+     
+        <div className="bg-black/5 h-full -z-50 pb-20">
     <div className=" py-10 flex flex-col justify-center items-center gap-4">    
    <div className="text-4xl md:text-5xl font-bold text-blue-700 font-mono leading-0">{time.toLocaleTimeString()} </div>
    <div className="text-2xl md:text-4xl"> {time.toDateString()}</div>
@@ -66,18 +79,14 @@ function allPlans(){
 
 <DraggableComponent list={plans} />
 
-  
-
-
-
  </section>
- <div className="mb-10">
+ <div className="">
 
   <AddPlan/>
  </div>
 
         </div>
-
+      
     )
 }
 

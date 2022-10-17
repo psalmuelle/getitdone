@@ -331,7 +331,7 @@ export function AddPlan() {
 
   return (
     <form className='' onSubmit={handleSubmit(onSubmit)}>
-      <div className='flex justify-between items-center mx-auto bg-violet-500  w-11/12  max-w-lg px-5 py-1 pl-1 rounded '>
+      <div className='flex justify-between items-center mx-auto bg-violet-500  w-11/12  max-w-lg px-5 py-1 pl-1 rounded  '>
         <input
           type='text'
           placeholder='Add a task to list'

@@ -73,7 +73,7 @@ const getPlan=()=>{
 const deletePlan=(id)=>{
     return (
         client
-        .delete(`/plan/delete/${id}`)
+        .delete(`/plan/delete/${id}/`)
     )
 }
 
