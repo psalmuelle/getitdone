@@ -33,12 +33,7 @@ const getNote=()=>{
       .get("/note/get/", {
         headers: authHeader()
       })
-      .then((response)=>{
-        console.log(response.data)
-      }).catch(err =>{
-        console.log(err)
-        alert(err)
-      })
+     
     )
 }
 

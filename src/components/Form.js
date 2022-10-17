@@ -274,7 +274,11 @@ export function AddTodoList() {
 export function AddNotes() {
   const { register, reset, handleSubmit } = useForm();
   const onAddNote = (data) => {
-    userService.createNote(data) && reset();
+    console.log(data)
+    userService.createNote(data).then(()=>{
+      window.location.reload()
+    });
+    reset();
   };
   return (
     <form
