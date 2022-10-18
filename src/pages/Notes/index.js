@@ -40,7 +40,7 @@ export default function Notes(){
        return (
          
       
-       <ul className="flex flex-col gap-10 justify-center items-center lg:grid lg:grid-cols-2">
+       <ul className="flex flex-col gap-10 justify-center items-center lg:grid lg:grid-cols-2" key={i}>
        { note.map(({title, note, created_on, id},i)=>{ 
         const date = new Date(created_on).toDateString()
               

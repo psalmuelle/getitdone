@@ -177,10 +177,11 @@ export function AddTodo() {
 
   const onSubmit = (data) => {
     userService.createTodo(data)
+    
   };
 
   return (
-    <form className='text-white ' onSubmit={handleSubmit(onSubmit)}>
+    <form className='text-white min-w-[200px]  sm:w-[300px]' onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-col  round gap-2'>
         <label
           htmlFor='title'

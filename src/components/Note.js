@@ -13,9 +13,10 @@ export default function Note(props){
    
 
     return(
-        <li className="border  max-w-xl rounded shadow w w-full" key={props.id}>
-        <div onLoad={()=>setColor(randColor)} className={` rounded-tr py-2 rounded-tl h-fit md:h-14 text-center px-2 flex items-center justify-center text-lg text-white break-words`} style={{background: randColor}}>
+        <li className="border max-w-xl rounded shadow w w-full" key={props.id}>
+        <div onLoad={()=>setColor(randColor)} className={`bg-violet-900 relative rounded-tr py-2 rounded-tl h-fit md:h-14 text-center px-2 flex items-center justify-center text-lg text-white break-words`} >
             {props.title}
+            <div className="w-full h-1 absolute -top-2 rounded shadow" style={{background: randColor}}></div>
         </div>
         
          <p className="p-5 bg-white">{props.note}
