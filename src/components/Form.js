@@ -177,7 +177,8 @@ export function AddTodo() {
 
   const onSubmit = (data) => {
     userService.createTodo(data)
-    
+
+
   };
 
   return (
@@ -234,7 +235,7 @@ export function AddTodo() {
 
 //Dashboard TodoLists Form.
 
-export function AddTodoList() {
+export function AddTodoList(props) {
   const formSchema = yup.object().shape({
     tasklist: yup.string().max(100),
   });
@@ -247,7 +248,10 @@ export function AddTodoList() {
   } = useForm({ resolver: yupResolver(formSchema) });
 
   const onSubmit = (data) => {
-    
+    const addedData = data
+    addedData["todo"] = props.todo
+    console.log(addedData)
+    userService.createTodoList(data)
 
     reset();
   };
@@ -260,7 +264,7 @@ export function AddTodoList() {
           placeholder='Add a task to list'
           className='rounded pl-4 pr-1 h-10'
           aria-required
-          {...register("tasklist", { required: true })}
+          {...register("list", { required: true })}
         />
         <motion.button whileTap={{scale:1.1}} whileHover={{opacity:0.8}} className='text-slate-900  px-3 pb-1 rounded-full flex justify-center items-center  bg-gradient-to-r from-slate-500 via-purple-300 to-white text-3xl'>
           +

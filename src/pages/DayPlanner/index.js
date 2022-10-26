@@ -28,18 +28,17 @@ export default function DayPlanner(){
       TodoService.getPlan().then((res)=>{
        res.data.forEach(({id, plan, created_on},i)=>{
          setPlans(plans.unshift(plan))
-         setLoading(false)
-
+         
          const now = new Date()
          const msBetweenDates = Math.abs(Date.parse(created_on) - now.getTime())
-
+         
          const hoursBetweenDates = msBetweenDates / (60*60*1000)
-
-        
+         
          if(hoursBetweenDates > 24){
-          TodoService.deletePlan(id)
-         }
-        
+           TodoService.deletePlan(id)
+          }
+          
+          setLoading(false)
        
       })
       
@@ -48,8 +47,6 @@ export default function DayPlanner(){
    
     .catch((err)=> console.log(err))
     
-   
-    console.log(plans)
     
    
     }, [updatePlanner])

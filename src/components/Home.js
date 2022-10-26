@@ -4,37 +4,29 @@ import AddIcon from "../images/icons8-task.svg";
 import RepeatIcon from "../images/icons8-ok.svg";
 import { AnimatePresence, motion } from "framer-motion";
 import { AddTodo, AddTodoList } from "./Form";
+import TodoService from '../services/user.service'
 
-//Tests
-const myTasks = [
-  {
-    id: "1",
-    text: "Complete the header and footer of my portfolio website",
-    taskstatus: "completed",
-  },
-  {
-    id: "2",
-    text: "Complete the header and footer of my portfolio website",
-    taskstatus: "completed",
-  },
-  {
-    id: "3",
-    text: "Complete the header and footer of my portfolio website",
-    taskstatus: "not completed",
-  },
-  {
-    id: "4",
-    text: "Complete the header and footer of my portfolio website",
-    taskstatus: "completed",
-  },
-];
+
 
 export default function HomeSection() {
   const [addList, setAddList] = useState(false);
+  const [todo, setTodo] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [todoLists, setTodoLists] = useState([])
 
   useEffect(() => {
     document.title = "Slick | home";
-  });
+    TodoService.getTodo()
+    .then((res)=>{
+      setTodo((todo)=> [...todo, res.data]) 
+      setLoading(false)
+    })
+    TodoService.getTodoList().then((res)=>{
+      setTodoLists((prev)=>[...prev, res.data])
+    })
+    
+  }, []);
+
   return (
     <div>
       <button
@@ -74,13 +66,31 @@ export default function HomeSection() {
       <hr className='h-1  border-black/60' />
 
       <div className='bg-black/5 p-4 pb-16 flex justify-center items-center md:flex-row flex-wrap gap-20 md:gap-28'>
-        <section className='bg-white/60 text-slate-900 rounded relative shadow-md shadow-black/70   w-96'>
-          <h1 className='bg-indigo-500 rounded-tr rounded-tl h-12 md:h-14  flex items-center justify-center text-lg text-white'>
-            Build My Portfolio
+
+
+{
+  loading && (
+    <motion.div initial={{transform: "rotate(0deg"}} animate={{transform: "rotate(360deg"}} transition={{repeat: Infinity, duration: 1}} className="w-10 h-10 rounded-full border-4 border-t-violet-600 mx-auto  "> 
+    </motion.div>
+ )
+}
+
+{
+  todo.map((todos, i)=> {
+    
+    return (
+      
+      todos.map(({description, title, deadline, id}, i)=> {
+        const dDay =Math.floor( Date.parse(deadline) - new Date().getTime())
+          const daysRemaining = Math.floor(dDay / 86400000)
+          const todoid = id
+          return (
+            <section className='bg-white/60 text-slate-900 rounded relative shadow-md shadow-black/70   w-96' key={i}>
+            <h1 className='bg-indigo-500 rounded-tr rounded-tl h-12 md:h-14  flex items-center justify-center text-lg text-white'>
+            {title}
           </h1>
           <div className='mx-5 mt-5 text-slate-700 text-center '>
-            This is a description of the project that I am workin on. I am
-            working on a project that will help me build my Portfolio.
+            {description}
           </div>
           <hr className='mt-4' />
           <div className='mx-5  flex justify-between my-6'>
@@ -94,38 +104,53 @@ export default function HomeSection() {
             </p>
             <p className=''>
               <span className='text-slate-500'>Deadline:</span>{" "}
-              {"44 Days To Go"}
+              {Math.sign(daysRemaining) === -1 ? 'Finished' : daysRemaining + ' Days To Go'}
             </p>
           </div>
-          {myTasks.map(({ id, text, taskstatus }, index) => {
-            return (
-              <li
+            
+            {
+              todoLists.map((todolists, i)=>{
+   
+                return(
+                  todolists.map(({id, list, completed, todo},i)=>{
+                  if (todo === todoid){
+                   return( <li
                 className='flex justify-start items-center px-5 gap-5 py-4 border-b'
-                key={index}>
+                key={i}>
                 <input
                   type='checkbox'
-                  id={"check" + id}
+                  id={"check" + i}
                   defaultChecked={
-                    taskstatus === "completed" ? "defaultChecked" : ""
+                    completed === true ? "defaultChecked" : ""
                   }
                   className='accent-emerald-700 shadow checked:shadow-black/80 outline-none h-7 bg-black'
                 />
-                <label htmlFor={"check" + id} className={taskstatus === "completed" ? "line-through text-green-500" : ""}>
-                  {text}
+                <label htmlFor={"check" + id} className={completed === true ? "line-through text-green-500" : ""}>
+                  {list}
                 </label>
-              </li>
-            );
-          })}
-
+              </li>)
+                  }
+                  })
+                )
+              })
+            }
+          
           <div className='flex p-5 pb-2'>
             <p className='font-mono text-black text-center'>
               Trust yourself that you can do it and get it
             </p>
           </div>
 
-          <AddTodoList />
-        </section>
+          <AddTodoList todo={id} />
+          </section>
+          )
+        })
+    )
+  })
+}
       </div>
     </div>
   );
 }
+
+

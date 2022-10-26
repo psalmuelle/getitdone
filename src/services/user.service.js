@@ -86,6 +86,7 @@ const createTodo=(data)=>{
       })
       .then((response)=>{
         console.log(response.data)
+        window.location.reload()
       }).catch(err =>{
         console.log(err)
         alert(err)
@@ -99,21 +100,18 @@ const getTodo=()=>{
       .get("/todo/get/", {
         headers: authHeader()
       })
-      .then((response)=>{
-        console.log(response.data)
-      }).catch(err =>{
-        console.log(err)
-        alert(err)
-      })
+      
     )
 }
 
-const createTodoList=(data, todoId)=>{
+const createTodoList=(data)=>{
     return (
         client
       .post("/todolist/create/", {
        list: data.list,
-       todoid: todoId
+       todo: data.todo
+      }, {
+        headers: authHeader()
       })
       .then((response)=>{
         console.log(response.data)
@@ -124,16 +122,13 @@ const createTodoList=(data, todoId)=>{
     )
 }
 
-const getTodoList=(id)=>{
+const getTodoList=()=>{
     return (
         client
-      .get(`/todolist/get/${id}/`)
-      .then((response)=>{
-        console.log(response.data)
-      }).catch(err =>{
-        console.log(err)
-        alert(err)
+      .get(`/todolist/get/`, {
+        headers: authHeader()
       })
+      
     )
 }
 
@@ -141,7 +136,10 @@ const updateTodoList=(data, id)=>{
     return (
       client
       .put(`/todolist/update/${id}/`,{
-        completed: data.completed
+        completed: data.completed,
+        todo: data.todo
+      }, {
+        headers: authHeader()
       })
       .then((res)=>{
         console.log(res)
