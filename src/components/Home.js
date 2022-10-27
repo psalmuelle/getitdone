@@ -32,7 +32,7 @@ export default function HomeSection() {
       <button
         onClick={() => setAddList(!addList)}
         className='flex justify-center items-center my-5 mx-auto text-white p-3 md:p-4 text-lg bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded shadow-2xl w-44 '>
-        Add A List <img className='h-8 pl-2' src={AddIcon} />
+        Add A List <img className='h-8 pl-2' src={AddIcon} alt="Add list" />
       </button>
 
       <AnimatePresence>
@@ -65,7 +65,7 @@ export default function HomeSection() {
       </AnimatePresence>
       <hr className='h-1  border-black/60' />
 
-      <div className='bg-black/5 p-4 pb-16 flex justify-center items-center md:flex-row flex-wrap gap-20 md:gap-28'>
+      <div className='bg-black/5 p-4 pb-16 flex justify-center items-center md:flex-row flex-wrap gap-20 md:gap-28 '>
 
 
 {
@@ -86,7 +86,7 @@ export default function HomeSection() {
           const todoid = id
           return (
             <section className='bg-white/60 text-slate-900 rounded relative shadow-md shadow-black/70   w-96' key={i}>
-            <h1 className='bg-indigo-500 rounded-tr rounded-tl h-12 md:h-14  flex items-center justify-center text-lg text-white'>
+            <h1 className='bg-indigo-500 rounded-tr rounded-tl h-12 md:h-14  flex items-center justify-center text-lg text-center text-white'>
             {title}
           </h1>
           <div className='mx-5 mt-5 text-slate-700 text-center '>
@@ -113,7 +113,7 @@ export default function HomeSection() {
    
                 return(
                   todolists.map(({id, list, completed, todo},i)=>{
-                  if (todo === todoid){
+                 if (todo === todoid){
                    return( <li
                 className='flex justify-start items-center px-5 gap-5 py-4 border-b'
                 key={i}>
@@ -129,7 +129,7 @@ export default function HomeSection() {
                   {list}
                 </label>
               </li>)
-                  }
+                }
                   })
                 )
               })

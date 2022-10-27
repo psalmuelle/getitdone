@@ -255,6 +255,7 @@ export function AddTodoList(props) {
     userService.createTodoList(data)
 
     reset();
+    window.location.reload()
   };
 
   return (

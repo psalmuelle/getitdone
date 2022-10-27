@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, } from "framer-motion";
-import React, { useState, useEffect, useRef} from "react";
+import React, { useState, useEffect} from "react";
 import { Register, Login, ContactMe } from "../../components/Form";
 import SlickLogo from "../../images/slick.svg";
 import feature2 from "../../images/feat2.jpg";
@@ -52,7 +52,7 @@ AuthService.getUser().then((res)=>{
 
 
   return (
-    <div className='relative '>
+    <div className='relative ' >
 
 {
   (popup.login || popup.signup) && (
@@ -78,9 +78,9 @@ AuthService.getUser().then((res)=>{
             <img src={SlickLogo} alt='Home-icon' className='block  ' />
           </div>
           <ul className="lg:flex justify-center items-center list-none  px-1 hidden lg:gap-20 text-slate-800 mr-4">
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Demo</a></li>
-            <li><a href="#">Contact me</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#demo">Demo</a></li>
+            <li><a href="#contact">Contact me</a></li>
           </ul>
           <ul className="sm:flex justify-center items-center list-none  px-1 hidden sm:gap-16 text-slate-800 mr-4 font-bold" >
           <motion.li whileHover={{scale:1.15, opacity:0.8}} whileTap={{scale:1.1, opacity:0.7}} onClick={()=>{setPopup({...popup,
@@ -105,9 +105,9 @@ AuthService.getUser().then((res)=>{
             
             className="bg-white py-4 border-t sm:hidden absolute w-full top-full right-0">
                <ul className="flex justify-center items-center list-none  px-1 flex-col   gap-4 text-slate-800">
-            <li onClick={()=>{ setPopup({...popup, menu:false})}}><a href="#">Features</a></li>
-            <li onClick={()=>{ setPopup({...popup, menu:false})}}><a href="#">Demo</a></li>
-            <li onClick={()=>{ setPopup({...popup, menu:!popup.menu})}}><a href="#">Contact me</a></li>
+            <li onClick={()=>{ setPopup({...popup, menu:false})}}><a href="#features">Features</a></li>
+            <li onClick={()=>{ setPopup({...popup, menu:false})}}><a href="#demo">Demo</a></li>
+            <li onClick={()=>{ setPopup({...popup, menu:!popup.menu})}}><a href="#contact">Contact me</a></li>
             <li className="text-lg" 
             onClick={()=>{ setPopup({...popup, login:!popup.login})}}>Login</li>
             <li className="text-lg" 
@@ -131,7 +131,7 @@ AuthService.getUser().then((res)=>{
       </AnimatedTextWord>
       </h1>
    
-      <img animate={{opacity:1, y:0}} initial={{y:20}} src={HeroImg} className= ""/>
+      <img animate={{opacity:1, y:0}} initial={{y:20}} src={HeroImg} className= "" alt="hero section"/>
     
         </section>
       <div className="border-none bg-slate-200 w-full h-24 -mt-32 md:hidden"></div>
@@ -139,7 +139,7 @@ AuthService.getUser().then((res)=>{
 
       <main className="p-4 mt-10">
      
-        <motion.div initial={{y:40}} whileInView={{y:0}} 
+        <motion.div initial={{y:40}} whileInView={{y:0}} id="features"
       >
           <motion.section whileInView={{ y:0}} initial={{y:20}} className="flex shadow rounded flex-wrap items-center justify-center p-4 py-6 my-10 bg-white gap-8 lg:gap-16">
             <div className="max-w-xl text-slate-900 ">
@@ -147,7 +147,7 @@ AuthService.getUser().then((res)=>{
             <p className="mt-10 max-w-md mb-8 leading-7">You can manage and keep track of your mini projects. Slick app helps you keep track of your portfolio projects.</p>
             <button className="py-3 border-slate-500 px-12 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50 rounded cursor-pointer" onClick={()=>{ setPopup({...popup, signup:!popup.signup})}}>Get Started</button>
             </div>
-            <img src={feature1} className="block w-full  max-w-xs "/>
+            <img src={feature1} className="block w-full  max-w-xs " alt="feature"/>
           </motion.section>
 
           <motion.section whileInView={{ y:0}} initial={{y:20}} className="flex shadow flex-row-reverse rounded flex-wrap items-center  justify-center p-4 py-6 my-10 bg-white gap-8 lg:gap-16">
@@ -156,7 +156,7 @@ AuthService.getUser().then((res)=>{
             <p className="mt-10 max-w-md mb-8 leading-7">Write about your thoughts or ideas and come back to check it out anytime. You can keep log of future ideas for your projects on this app.</p>
             <button className="py-3 border-slate-500 px-12 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50 rounded cursor-pointer" onClick={()=>{ setPopup({...popup, signup:!popup.signup})}}>Sign-up</button>
             </div>
-            <img src={feature2} className="block w-full max-w-sm  "/>
+            <img src={feature2} className="block w-full max-w-sm  " alt="feature"/>
           </motion.section>
 
           <motion.section whileInView={{ y:0}} initial={{y:20}} className="flex shadow rounded flex-wrap items-center justify-center p-4 my-10 bg-white gap-8 lg:gap-16 py-10">
@@ -165,12 +165,12 @@ AuthService.getUser().then((res)=>{
             <p className="mt-10 max-w-md mb-8 leading-7">This webapp comes with a simple and easy to track todo list. Daily todo automatically expires after 24 hours. Your list doesn't have to get messy!</p>
             <button className="py-3 border-slate-500 px-12 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50 rounded cursor-pointer" onClick={()=>{ setPopup({...popup, signup:!popup.signup})}}>Join now</button>
             </div>
-            <img src={feature3} className="block w-full max-w-sm rounded py-6"/>
+            <img src={feature3} className="block w-full max-w-sm rounded py-6" alt="feature"/>
           </motion.section>
           </motion.div>
 
       
-          <h2 className="border-b-4 w-fit  border-indigo-900 mx-auto text-black/90 pt-10">Contact Developer</h2>
+          <h2 className="border-b-4 w-fit  border-indigo-900 mx-auto text-black/90 pt-10" id="contact">Contact Developer</h2>
           <p className="p-4 text-center text-black mt-4">My name is <span>Sam</span>, you can send me a message. Feebacks and recommendations are welcome!</p>
           <motion.section whileInView={{ opacity:1}} initial={{opacity:0.5}}  className="">
             <ContactMe/>

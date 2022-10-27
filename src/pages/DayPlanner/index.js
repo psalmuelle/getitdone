@@ -17,7 +17,7 @@ export default function DayPlanner(){
    const updatePlanner = useSelector(state=> state.planner.changes)
 
     useEffect(() => {
-        const interval = setInterval(() =>{
+        setInterval(() =>{
             setTime(new Date())
         }, 1000)   
     }, [time])
@@ -38,22 +38,20 @@ export default function DayPlanner(){
            TodoService.deletePlan(id)
           }
           
-          setLoading(false)
+         
        
       })
       
       
+    }).catch((err)=> console.log(err))
+    .then(()=>{
+      setLoading(false)
     })
-   
-    .catch((err)=> console.log(err))
     
     
    
     }, [updatePlanner])
    
-function allPlans(){
- return plans
-}
 
 
     return(
