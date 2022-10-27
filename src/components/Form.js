@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { motion } from "framer-motion";
@@ -8,6 +8,7 @@ import userService from "../services/user.service";
 import { useDispatch } from "react-redux";
 import { checkAuthentication } from "../redux/userSlice";
 import { updatePlanner } from "../redux/plannerSlice";
+import emailjs from '@emailjs/browser';
 
 //Register Component
 export function Register() {
@@ -360,15 +361,22 @@ export function AddPlan() {
 
 export function ContactMe (){
   const { register, handleSubmit, reset, formState: errors } = useForm();
-
+const form = useRef()
   const onSubmit = (data) => {
     console.log(data);
-
-    reset();
+   
+    emailjs.sendForm('service_8qyuyuy', 'template_recchh7',form.current , 'vf_hPfCcRr4cRaUVy')
+    .then((result) => {
+        console.log(result.text);
+        reset();
+    }, (error) => {
+        console.log(error.text);
+    });
+    
   };
 
   return (
-    <form  onSubmit={handleSubmit(onSubmit)} className="bg-slate-500 rounded p-4 " >
+    <form ref={form}  onSubmit={handleSubmit(onSubmit)} className="bg-slate-500 rounded p-4 " >
       <div className="flex flex-wrap justify-center gap-7">
       <div className='flex flex-col items-start justify-center w-80 '>
         <label htmlFor="name" className="p-2 text-white">Name</label>
@@ -401,7 +409,7 @@ export function ContactMe (){
         </textarea>
       </div>
       </div>
-      <button type="submit" className="py-3 my-10 mx-auto block  border-slate-500 px-10 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50 rounded-3xl cursor-pointer">Send Message</button>
+      <button type="submit" className="py-3 my-10 mx-auto block  border-slate-500 px-10 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50 rounded cursor-pointer">Send Message</button>
     </form>
   );
 }

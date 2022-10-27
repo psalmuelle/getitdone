@@ -7,7 +7,6 @@ import feature1 from "../../images/feature1.jpg";
 import feature3 from "../../images/feat3.jpg";
 import HeroImg from "../../images/3d-flame-man.png";
 import { AnimatedTextCharacter, AnimatedTextWord } from "../../components/wayyTexts";
-import { Testimonials } from "../../components/Testimonials";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { checkAuthentication } from "../../redux/userSlice";
@@ -28,12 +27,11 @@ const [popup, setPopup] = useState({
   signup: false,
   menu: false,
 })
-const [width, setWidth]= useState(0)
-const carousel = useRef()
+
 
  useEffect(()=>{
   document.title = "Slick"
-setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+
 
 AuthService.getUser().then((res)=>{
   if (Object.keys(res.data).length >= 1){
@@ -75,7 +73,7 @@ AuthService.getUser().then((res)=>{
 
 
  <motion.header animate={{position:"sticky", backdropFilter:"blur(15px)" , WebkitBackdropFilter: "blur(5px)" , top:0 }}        
-        className='w-full  px-4 bg-unset flex  justify-between gap-4 z-10'>
+        className='w-full  px-12 bg-unset flex  justify-between gap-4 z-10'>
           <div className=' w-20 cursor-pointer  md:w-24 mt-3'>
             <img src={SlickLogo} alt='Home-icon' className='block  ' />
           </div>
@@ -84,11 +82,11 @@ AuthService.getUser().then((res)=>{
             <li><a href="#">Demo</a></li>
             <li><a href="#">Contact me</a></li>
           </ul>
-          <ul className="sm:flex justify-center items-center list-none  px-1 hidden sm:gap-16 text-slate-800 mr-4" >
+          <ul className="sm:flex justify-center items-center list-none  px-1 hidden sm:gap-16 text-slate-800 mr-4 font-bold" >
           <motion.li whileHover={{scale:1.15, opacity:0.8}} whileTap={{scale:1.1, opacity:0.7}} onClick={()=>{setPopup({...popup,
           login: !popup.login
           })}} className="cursor-pointer">Login</motion.li>
-            <motion.li whileHover={{scale:1.1, opacity:0.8}} whileTap={{scale:1.05, opacity:0.8}} className="py-3 border-slate-500 px-10 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50 rounded-3xl cursor-pointer" 
+            <motion.li whileHover={{scale:1.1, opacity:0.8}} whileTap={{scale:1.05, opacity:0.8}} className="py-4  border-slate-500 px-12 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50  cursor-pointer" 
             onClick={()=>{ setPopup({...popup, signup:!popup.signup})}}>Sign-up</motion.li>
           </ul>
           <motion.button whileHover={{scale:1.2}} whileTap={{scale:1.1}} className="sm:hidden w-11 flex justify-center items-center" onClick={()=>{ setPopup({...popup, menu:!popup.menu})}} > 
@@ -123,7 +121,7 @@ AuthService.getUser().then((res)=>{
 
         </motion.header>
        
-       <div className="bg-slate-200 ">
+       <div className=" ">
 
       
         <section className="flex flex-wrap justify-center items-center gap-8 w-full pt-8 mb-8 pb-4 bg-purple-900 ">
@@ -139,16 +137,15 @@ AuthService.getUser().then((res)=>{
       <div className="border-none bg-slate-200 w-full h-24 -mt-32 md:hidden"></div>
 
 
-      <main className="p-4 ">
+      <main className="p-4 mt-10">
      
-        <h2 className="border-b-4 w-fit  border-indigo-900 mx-auto text-black/90 ">Features</h2>
         <motion.div initial={{y:40}} whileInView={{y:0}} 
       >
           <motion.section whileInView={{ y:0}} initial={{y:20}} className="flex shadow rounded flex-wrap items-center justify-center p-4 py-6 my-10 bg-white gap-8 lg:gap-16">
             <div className="max-w-xl text-slate-900 ">
             <h2 className="font-bold text-xl ">Project Management</h2>
             <p className="mt-10 max-w-md mb-8 leading-7">You can manage and keep track of your mini projects. Slick app helps you keep track of your portfolio projects.</p>
-            <button className="py-3 border-slate-500 px-12 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50 rounded-3xl cursor-pointer" onClick={()=>{ setPopup({...popup, signup:!popup.signup})}}>Get Started</button>
+            <button className="py-3 border-slate-500 px-12 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50 rounded cursor-pointer" onClick={()=>{ setPopup({...popup, signup:!popup.signup})}}>Get Started</button>
             </div>
             <img src={feature1} className="block w-full  max-w-xs "/>
           </motion.section>
@@ -157,7 +154,7 @@ AuthService.getUser().then((res)=>{
             <div className="max-w-xl text-slate-900 ">
             <h2 className="font-bold text-xl ">Keep Your Ideas in One Place</h2>
             <p className="mt-10 max-w-md mb-8 leading-7">Write about your thoughts or ideas and come back to check it out anytime. You can keep log of future ideas for your projects on this app.</p>
-            <button className="py-3 border-slate-500 px-12 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50 rounded-3xl cursor-pointer" onClick={()=>{ setPopup({...popup, signup:!popup.signup})}}>Sign-up</button>
+            <button className="py-3 border-slate-500 px-12 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50 rounded cursor-pointer" onClick={()=>{ setPopup({...popup, signup:!popup.signup})}}>Sign-up</button>
             </div>
             <img src={feature2} className="block w-full max-w-sm  "/>
           </motion.section>
@@ -166,32 +163,13 @@ AuthService.getUser().then((res)=>{
             <div className="max-w-xl text-slate-900 ">
             <h2 className="font-bold text-xl ">Daily Todo List</h2>
             <p className="mt-10 max-w-md mb-8 leading-7">This webapp comes with a simple and easy to track todo list. Daily todo automatically expires after 24 hours. Your list doesn't have to get messy!</p>
-            <button className="py-3 border-slate-500 px-12 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50 rounded-3xl cursor-pointer" onClick={()=>{ setPopup({...popup, signup:!popup.signup})}}>Join now</button>
+            <button className="py-3 border-slate-500 px-12 shadow-xl  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-slate-50 rounded cursor-pointer" onClick={()=>{ setPopup({...popup, signup:!popup.signup})}}>Join now</button>
             </div>
             <img src={feature3} className="block w-full max-w-sm rounded py-6"/>
           </motion.section>
           </motion.div>
 
-         
-          <h2 className="border-b-4 w-fit  border-indigo-900 mx-auto text-black/90 pt-5">Testimonies</h2>
-         <section className="w-full my-10 overflow-hidden">
-          <motion.div ref={carousel} drag="x" dragConstraints={{right:0,  left: -width}} 
-          whileTap={{cursor:"grabbing"}}
-          className="w-full flex   mx-auto items-center gap-10">
-         {
-          Testimonials.map((test,i)=>{
-          return(
-            <div key={i} className="text-center p-4 bg-white shadow sm:w-[22rem] min-w-[20rem] rounded">
-             <blockquote className="italic text-black my-4 px-4">"{test.testimonial}"</blockquote>
-             <div className="flex justify-center items-center gap-4 mt-8"><img alt="testimonial image" src={test.imgSrc} className ="w-14 rounded-full "/> {test.testName}<span className="text-slate-700">|</span><span className="text-slate-700">{test.learning}</span> </div>
-            </div>
-          )
-          })
-         }
-         </motion.div>
-         </section>
-         <p className="text-center -mt-14 text-black/90 text-6xl">...</p>
-         
+      
           <h2 className="border-b-4 w-fit  border-indigo-900 mx-auto text-black/90 pt-10">Contact Developer</h2>
           <p className="p-4 text-center text-black mt-4">My name is <span>Sam</span>, you can send me a message. Feebacks and recommendations are welcome!</p>
           <motion.section whileInView={{ opacity:1}} initial={{opacity:0.5}}  className="">
@@ -199,7 +177,7 @@ AuthService.getUser().then((res)=>{
           </motion.section>
       </main>
 
-      <footer className="bg-purple-900 mt-10">
+      <footer className=" bg-gradient-to-b from-slate-500 to-slate-800 mt-10">
 <div className="flex  justify-center items-center gap-4 md:gap-6 pt-4 pb-4">
 
 <a href="https://twitter.com/erinle_sam" target="_blank" rel="noreferrer"><img src="https://img.icons8.com/ios/50/000000/twitter--v1.png" alt="twitter" className="block invert w-8 md:w-10 "/></a>
