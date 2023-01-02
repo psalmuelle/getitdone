@@ -86,10 +86,10 @@ export default function HomeSection() {
           const todoid = id
           return (
             <section className='bg-white/60 text-slate-900 rounded relative shadow-md shadow-black/70   w-96' key={i}>
-            <h1 className='bg-indigo-500 rounded-tr rounded-tl h-12 md:h-14  flex items-center justify-center text-lg text-center text-white'>
+            <h1 className='bg-indigo-500 w-full rounded-tr rounded-tl h-12 md:h-14  flex items-center justify-center text-lg text-center text-white'>
             {title}
           </h1>
-          <div className='mx-5 mt-5 text-slate-700 text-center '>
+          <div className='w-full mx-auto mt-5 text-slate-700 text-center '>
             {description}
           </div>
           <hr className='mt-4' />
