@@ -62,7 +62,7 @@ export default function DayPlanner(){
    <div className="text-2xl md:text-4xl"> {time.toDateString()}</div>
  </div>
  <hr/>
- <p className="mx-auto text-slate-900 text-center">NB: Added plan expirers after 24 hours </p>
+ <p className="mx-auto text-slate-900 text-center">NB: Added plan expires after 24 hours </p>
  <section className="my-4 max-w-lg text-slate-900 mx-auto  p-4 rounded h-fit mb-4">
 
 {
