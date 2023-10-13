@@ -5,6 +5,7 @@ import RepeatIcon from "../images/icons8-ok.svg";
 import { AnimatePresence, motion } from "framer-motion";
 import { AddTodo, AddTodoList } from "./Form";
 import TodoService from '../services/user.service'
+import { GrClose } from "react-icons/gr";
 
 
 
@@ -50,11 +51,11 @@ export default function HomeSection() {
                 className='flex justify-center items-center h-fit backdrop-blur-lg p-4 rounded-lg relative'
                 onClick={(e) => e.stopPropagation()}>
                 <div
-                  className='absolute -top-11 cursor-pointer w-10 h-10 flex justify-center items-center rounded-full text-3xl text-red-600 bg-white'
+                  className='absolute -top-11 cursor-pointer w-10 h-10 flex justify-center items-center rounded-full bg-white'
                   onClick={() => {
                     setAddList(false);
                   }}>
-                  &times;
+                  <GrClose/>
                 </div>
 
                 <AddTodo />

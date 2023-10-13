@@ -11,6 +11,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { checkAuthentication } from "../../redux/userSlice";
 import AuthService from "../../services/auth.service"
+import {GrClose} from 'react-icons/gr'
 
 
 
@@ -60,7 +61,7 @@ AuthService.getUser().then((res)=>{
         <div className="w-full h-full flex justify-center items-center bg-black/20 " >
           <div className="flex justify-center items-center h-fit backdrop-blur-lg p-4 rounded-lg relative">
 
-          <div className="absolute -top-11 cursor-pointer w-10 h-10 flex justify-center items-center rounded-full text-3xl text-red-600 bg-white" onClick={()=>{ setPopup({...popup, signup:false, login:false})}}>&times;</div>
+          <div className="absolute -top-11 cursor-pointer w-10 h-10 flex justify-center items-center rounded-full bg-white" onClick={()=>{ setPopup({...popup, signup:false, login:false})}}><GrClose color="red"/></div>
 
      { popup.signup ? <Register/>: <Login/> }
       
